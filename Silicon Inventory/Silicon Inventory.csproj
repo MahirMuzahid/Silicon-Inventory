@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E1B89D7-6638-4335-BE71-ACCEFA06D185}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Silicon_Inventory</RootNamespace>
+    <AssemblyName>Silicon Inventory</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\Contructor.cs" />
+    <Compile Include="Model\IssueVoucher.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\PeriodicRecieptReportModel.cs" />
+    <Compile Include="Model\PrintForSteackLadger.cs" />
+    <Compile Include="Model\ReceiptVoucher.cs" />
+    <Compile Include="Model\Response.cs" />
+    <Compile Include="Model\ReturnVoucher.cs" />
+    <Compile Include="Model\StaticPageForAllData.cs" />
+    <Compile Include="Model\StockData.cs" />
+    <Compile Include="Model\StockLadgerModel.cs" />
+    <Compile Include="Model\Supplier.cs" />
+    <Compile Include="Model\Warehouse.cs" />
+    <Compile Include="Model\WorkOrder.cs" />
+    <Compile Include="Model\WOWisePeriodicIssueStatementModel.cs" />
+    <Compile Include="ViewModel\CommandHandler.cs" />
+    <Compile Include="ViewModel\MeterialReceiptViewModel.cs" />
+    <Compile Include="ViewModel\MeterialReturnViewModel.cs" />
+    <Compile Include="ViewModel\PeriodicRecieptReportViewModel.cs" />
+    <Compile Include="ViewModel\PeriodicReturnStatementViewModel.cs" />
+    <Compile Include="ViewModel\printStockLadgerViewModel.cs" />
+    <Compile Include="ViewModel\PrintViewModel.cs" />
+    <Compile Include="ViewModel\RequisitionStatement.cs" />
+    <Compile Include="ViewModel\StockBalanceReportViewModel.cs" />
+    <Compile Include="ViewModel\StockLadgerViewModel.cs" />
+    <Compile Include="ViewModel\WOWisePeriodicIssueStatementViewModel.cs" />
+    <Compile Include="View\AddItemView.xaml.cs">
+      <DependentUpon>AddItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ContructorListView.xaml.cs">
+      <DependentUpon>ContructorListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ContructorWisePeriodicIssueStatementView.xaml.cs">
+      <DependentUpon>ContructorWisePeriodicIssueStatementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CurrentStockBalanceView.xaml.cs">
+      <DependentUpon>CurrentStockBalanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MeterialReceiptView.xaml.cs">
+      <DependentUpon>MeterialReceiptView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MeterialReturnView.xaml.cs">
+      <DependentUpon>MeterialReturnView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PeriodicReciepReport.xaml.cs">
+      <DependentUpon>PeriodicReciepReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PeriodicReturnPrint.xaml.cs">
+      <DependentUpon>PeriodicReturnPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PeriodicReturnStatementView.xaml.cs">
+      <DependentUpon>PeriodicReturnStatementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintCurrentStockBlance.xaml.cs">
+      <DependentUpon>PrintCurrentStockBlance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintIssueVoucherView.xaml.cs">
+      <DependentUpon>PrintIssueVoucherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintPeriodicRecieptReport.xaml.cs">
+      <DependentUpon>PrintPeriodicRecieptReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintPeriodicStockLedgerPages.xaml.cs">
+      <DependentUpon>PrintPeriodicStockLedgerPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintReceiptVoucherView.xaml.cs">
+      <DependentUpon>PrintReceiptVoucherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintRequisition.xaml.cs">
+      <DependentUpon>PrintRequisition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintReturnVoucherView.xaml.cs">
+      <DependentUpon>PrintReturnVoucherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintStockLadgerDetail.xaml.cs">
+      <DependentUpon>PrintStockLadgerDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RequisitionReportView.xaml.cs">
+      <DependentUpon>RequisitionReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchItemView.xaml.cs">
+      <DependentUpon>SearchItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockLadgerDetails.xaml.cs">
+      <DependentUpon>StockLadgerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockLadgerSummery.xaml.cs">
+      <DependentUpon>StockLadgerSummery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StoreLadgerSummery.xaml.cs">
+      <DependentUpon>StoreLadgerSummery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StoreListView.xaml.cs">
+      <DependentUpon>StoreListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SupplierListView.xaml.cs">
+      <DependentUpon>SupplierListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WOListView.xaml.cs">
+      <DependentUpon>WOListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WOWisePeriodicIssueStatementView.xaml.cs">
+      <DependentUpon>WOWisePeriodicIssueStatementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WOWisePrint.xaml.cs">
+      <DependentUpon>WOWisePrint.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\AddItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ContructorListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ContructorWisePeriodicIssueStatementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CurrentStockBalanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IssueMeterialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\UpdateViewCommand.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\DashBoardViewModel.cs" />
+    <Compile Include="ViewModel\IssueMeterialViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="View\Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IssueMeterialView.xaml.cs">
+      <DependentUpon>IssueMeterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\MeterialReceiptView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MeterialReturnView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PeriodicReciepReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PeriodicReturnPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PeriodicReturnStatementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintCurrentStockBlance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintIssueVoucherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintPeriodicRecieptReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintPeriodicStockLedgerPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintReceiptVoucherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintRequisition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintReturnVoucherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintStockLadgerDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RequisitionReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SearchItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StockLadgerDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StockLadgerSummery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StoreLadgerSummery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StoreListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SupplierListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WOListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WOWisePeriodicIssueStatementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WOWisePrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\met_iisue_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\print_issue_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\met_rec_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\return_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\recpt_report_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\wo_recpt_report_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\requisition_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\stock_blnc_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\stock_ldg_detail_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\add_item_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\search_item_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\list_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\dashboard_ico.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Asset\pending.png" />
+    <Resource Include="Asset\printed_ico.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

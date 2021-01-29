@@ -1,0 +1,251 @@
+﻿<Window x:Class="Silicon_Inventory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Silicon_Inventory"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="MainWindow" d:DesignHeight="818.516" d:DesignWidth="1103.871">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#F55529"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F55529"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#F52C29 "/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F52C29 "/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LeftButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="#00FFFFFF"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#30000000"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#30000000"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#60000000"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#60000000"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="718*"/>
+            <ColumnDefinition Width="2253*"/>
+            <ColumnDefinition Width="617*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="28*"/>
+        </Grid.RowDefinitions>
+       
+        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding SelectedViewModel}" Grid.ColumnSpan="2"/>
+        
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Background="#E5E5E5  " >
+            <Grid Margin="0,0,40,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width=".3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="User Name" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Label Content="Online" Foreground="LightSeaGreen" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF21C783"/>
+                    <GradientStop Color="#FF219E93" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        <Grid Grid.RowSpan="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Button Content="Dashboard" Grid.Column="1" FontSize="15" Grid.Row="1" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold"  Command="{Binding UpdateViewCommand}" CommandParameter="dashboard"/>
+
+            <Image Source="/Asset/dashboard_ico.png" Grid.Row="1" Grid.Column="0" Margin="0,5,0,5" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+            <Label Content="Reciepts And Issues" Grid.Row="2" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+            <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="3" Margin="30,0,30,0"/>
+            <Button Content="Meterial Issue" Grid.Column="1" FontSize="14" Grid.Row="4" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="issue_meterial"/>
+            <Button Content="Print Issue Voucher" Grid.Column="1" FontSize="14" Grid.Row="5" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="prt_issue_vouc"/>
+            <Button Content="Meterial Receipt" Grid.Column="1" FontSize="14" Grid.Row="6" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="met_recp"/>
+            <Button Content="Print Receipt Voucher" Grid.Column="1" FontSize="14" Grid.Row="7" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold"  Command="{Binding UpdateViewCommand}" CommandParameter="prt_rcpt_vouc"/>
+            <Button Content="Meterial Return" Grid.Column="1" FontSize="14" Grid.Row="8" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="mt_return"/>
+            <Button Content="Print Return Voucher" Grid.Column="1" FontSize="14" Grid.Row="9" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="prt_return_vouc"/>
+
+            <Image Source="/Asset/met_iisue_ico.png" Grid.Row="4" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/print_issue_ico.png" Grid.Row="5" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/met_rec_icon.png" Grid.Row="6" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <Image Source="/Asset/print_issue_ico.png" Grid.Row="7" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/return_ico.png" Grid.Row="8" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/print_issue_ico.png" Grid.Row="9" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+
+            <Label Content="Reciepts And Issues Report" Grid.Row="10" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+            <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="11" Margin="30,0,30,0"/>
+            <Button Content="Periodic Receipt Report" Grid.Column="1" FontSize="14" Grid.Row="12" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="periodic_rpt_rcpt"/>
+            <Button Content="WO Wise Period Issue Statement" Grid.Column="1" FontSize="14" Grid.Row="13" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="WO_issue_stmt" />
+            <Button Content="Contructor Wise Periodic Issue Statement" Grid.Column="1" FontSize="14" Grid.Row="14" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="con_issue_vouc"/>
+            <Button Content="Periodic Return Statement" Grid.Column="1" FontSize="14" Grid.Row="15" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="periodic_return_stmt"/>
+            <Button Content="Requisition Report" Grid.Column="1" FontSize="14" Grid.Row="16" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="req.stt"/>
+
+            <Image Source="/Asset/recpt_report_ico.png" Grid.Row="12" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/wo_recpt_report_ico.png" Grid.Row="13" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/recpt_report_ico.png" Grid.Row="14" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/recpt_report_ico.png" Grid.Row="15" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/requisition_ico.png" Grid.Row="16" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+            <Label Content="Stock Report" Grid.Row="17" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+            <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="18" Margin="30,0,30,0"/>
+            <Button Content="Current Stock Balance" Grid.Column="1" FontSize="14" Grid.Row="19" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="crrsttblnc" />
+            <Button Content="Stock Ladger Details" Grid.Column="1" FontSize="14" Grid.Row="20" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="stock_ld_dtl"/>
+            <Button Content="Store Ladger Summery" Grid.Column="1" FontSize="14" Grid.Row="21" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="stock_ld_sum"/>
+
+            <Image Source="/Asset/stock_blnc_ico.png" Grid.Row="19" Grid.Column="0" Margin="0,6,0,6" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/stock_ldg_detail_ico.png" Grid.Row="20" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/recpt_report_ico.png" Grid.Row="21" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+            <Label Content="Item Control" Grid.Row="22" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+            <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="23" Margin="30,0,30,0"/>
+            <Button Content="Add Item" Grid.Column="1" FontSize="14" Grid.Row="24" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="add_item"/>
+            <Button Content="Search Item" Grid.Column="1" FontSize="14" Grid.Row="25" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="search_item"/>
+
+            <Image Source="/Asset/add_item_ico.png" Grid.Row="24" Grid.Column="0" Margin="0,10,0,10" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/search_item_ico.png" Grid.Row="25" Grid.Column="0" Margin="0,10,0,10" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+            <Label Content="List" Grid.Row="26" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+            <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="27" Margin="30,0,30,0"/>
+            <Button Content="Store List" Grid.Column="1" FontSize="14" Grid.Row="28" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="store_list"/>
+            <Button Content="Contructor List" Grid.Column="1" FontSize="14" Grid.Row="29" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="coon_list"/>
+            <Button Content="WO List" Grid.Column="1" FontSize="14" Grid.Row="30" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="WO_list"/>
+            <Button Content="Supplier List" Grid.Column="1" FontSize="14" Grid.Row="31" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="supplier_list"/>
+
+            <Image Source="/Asset/list_ico.png" Grid.Row="28" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/list_ico.png" Grid.Row="29" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/list_ico.png" Grid.Row="30" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/list_ico.png" Grid.Row="31" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+        </Grid>
+        <StackPanel Grid.RowSpan="2" Grid.ColumnSpan="4" Background="#70000000" Visibility="{Binding LoadingVisibility}">
+            
+        </StackPanel>
+        <Label Grid.RowSpan="2" Grid.ColumnSpan="4" Content="{Binding txt}"  HorizontalAlignment="Center" Visibility="{Binding LoadingVisibility}" VerticalAlignment="Center" FontSize="17" Foreground="White" FontWeight="DemiBold"/>
+    </Grid>
+</Window>
