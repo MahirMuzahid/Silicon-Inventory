@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.UI.MobileControls;
 using System.Windows;
@@ -84,10 +85,31 @@ namespace Silicon_Inventory.ViewModel
 
         public IssueMeterialViewModel()
         {
-           
+            StaticPageForAllData.isGoingNewView = false;
             Updater = new Updater(this);
             GetAllInfoAsync();
-            
+            Thread th = new Thread(() =>
+            {
+                while (true)
+                {
+                    
+                    if (StaticPageForAllData.isOnline)
+                    {
+                        newVoucherVisibility = "Hidden";
+
+                    }
+                    else
+                    {
+                        newVoucherVisibility = "Visible";
+                    }
+                    if(StaticPageForAllData.isGoingNewView)
+                    {
+                        break;
+                    }
+                }
+            });
+            th.Start();
+
         }
 
         public async Task GetAllInfoAsync()
@@ -210,7 +232,10 @@ namespace Silicon_Inventory.ViewModel
                 {
                     NullFlag++;
                 }
-                
+                if (!StaticPageForAllData.isOnline)
+                {
+                    NullFlag++;
+                }
                 if (NullFlag > 0)
                 {
                     IsmVoucherEnable = false;
@@ -570,7 +595,7 @@ namespace Silicon_Inventory.ViewModel
         UpdateViewCommand up;
         public async Task PrintVoucher()
         {
-            try
+            if (StaticPageForAllData.isOnline)
             {
                 printInPrinter();
                 if (newVoucher[0].IsPrinted == 0)
@@ -611,10 +636,16 @@ namespace Silicon_Inventory.ViewModel
                 }
                 ErrorText = "";
             }
-           
-            catch
+            else
             {
-                ErrorText = "Please make a new file or connect with internet";
+                if (newVoucher[0].IsPrinted == 1)
+                {
+                    printInPrinter();
+                }
+                else
+                {
+                    ErrorText = "Offline";
+                }
             }
 
         }
@@ -681,7 +712,7 @@ namespace Silicon_Inventory.ViewModel
             {
                 pd.PrintDocument(document.DocumentPaginator, "My Document");
             }
-            up = new UpdateViewCommand(viewModel);
+            
         }
         public async Task GetWareHouse()
         {

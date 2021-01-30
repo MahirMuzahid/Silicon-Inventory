@@ -622,6 +622,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    
                     <ComboBox x:Name="itemListCombo" KeyDown="itemListCombo_KeyDown" SelectedItem="{Binding SelectedItem}"  ItemsSource="{Binding Path= allItems}" TextSearch.TextPath ="itemNumber" Grid.Column="0" Margin="10,5,10,5"  Visibility ="{Binding isEditAbleVoucher}" IsEditable="True" Style="{DynamicResource ComboBoxStyle1}" Foreground="#404040" Background="AliceBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -635,6 +636,7 @@
                     </TextBox>
                     <Label x:Name="crrblnclbl" Content="{Binding SelectedItemBlnc}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"   Visibility ="{Binding isEditAbleVoucher}"/>
                     <Button Content="Add Item" x:Name="SaveItemBtn" Grid.Column="3" Margin="40,5,40,5" Background="#73EDB6" Foreground="black"  Visibility ="{Binding isEditAbleVoucher}" IsEnabled="{Binding addItemEnabled}" Command="{Binding Updater}" CommandParameter="new_item"/>
+                    
                 </Grid>
                 <Label Content="{Binding ErrorText}" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="{Binding ErrorColor}"/>
                 <ListView x:Name="ItemList" ItemsSource="{Binding newVoucher}" Grid.Row="5" Grid.ColumnSpan="2" BorderBrush="white">
@@ -686,6 +688,9 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
+                <StackPanel Grid.Row ="4" Grid.RowSpan="2" Grid.ColumnSpan="2"  Background="#50000000" Visibility="{Binding newVoucherVisibility}">
+
+                </StackPanel>
             </Grid>
             <StackPanel Visibility="{Binding newVoucherVisibility}" Grid.Row="0" Background="#70000000"/>
         </Grid>

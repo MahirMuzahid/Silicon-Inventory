@@ -1,4 +1,5 @@
-﻿using Silicon_Inventory.ViewModel;
+﻿using Silicon_Inventory.Model;
+using Silicon_Inventory.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace Silicon_Inventory.Commands
 
         public void Execute(object parameter)
         {
+            StaticPageForAllData.isGoingNewView = true;
             if (parameter.ToString() == "dashboard")
             {
                 viewModel.SelectedViewModel = new PrintViewModel();

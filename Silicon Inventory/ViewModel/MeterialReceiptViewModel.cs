@@ -562,6 +562,10 @@ namespace Silicon_Inventory.ViewModel
                 {
                     NullFlag++;
                 }
+                if (!StaticPageForAllData.isOnline)
+                {
+                    NullFlag++;
+                }
                 if (NullFlag > 0)
                 {
                     makeVoucherEnabled = false;

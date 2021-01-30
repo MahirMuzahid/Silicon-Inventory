@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 
@@ -43,7 +44,8 @@ namespace Silicon_Inventory.Model
         public static ObservableCollection<Item> Items { get; set; }
         public static ObservableCollection<User> Users { get; set; }
         public string error { get; set; }
-
+        public static bool isOnline { get; set; }
+        public static bool isGoingNewView { get; set; }
 
         public async Task GetAllData ()
         {
