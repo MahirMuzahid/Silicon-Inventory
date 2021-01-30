@@ -41,6 +41,7 @@ namespace Silicon_Inventory.Model
         public static ObservableCollection<IssueVoucher> AllIssueVoucher { get; set; }
         public static ObservableCollection<StockData> StockData { get; set; }
         public static ObservableCollection<Item> Items { get; set; }
+        public static ObservableCollection<User> Users { get; set; }
         public string error { get; set; }
 
 
@@ -48,6 +49,7 @@ namespace Silicon_Inventory.Model
         {
             try
             {
+                await GetAllUser().ConfigureAwait(false);
                 await GetContructor().ConfigureAwait(false);
                 await GetWorkOrder().ConfigureAwait(false);
                 await GetWareHouse().ConfigureAwait(false);
@@ -64,7 +66,19 @@ namespace Silicon_Inventory.Model
             }
             
         }
-
+        public async Task GetAllUser()
+        {
+            string urlt = "https://api.shikkhanobish.com/api/Silicon/GetUserName";
+            HttpClient clientt = new HttpClient();
+            HttpResponseMessage responset = await clientt.GetAsync(urlt).ConfigureAwait(false);
+            string resultt = await responset.Content.ReadAsStringAsync();
+            var r = JsonConvert.DeserializeObject<List<User>>(resultt);
+            Users = new ObservableCollection<User>();
+            for (int i = 0; i < r.Count; i++)
+            {
+                Users.Add(r[i]);
+            }
+        }
         public async Task GetContructor()
         {
             string urlt = "https://api.shikkhanobish.com/api/Silicon/GetContructor";

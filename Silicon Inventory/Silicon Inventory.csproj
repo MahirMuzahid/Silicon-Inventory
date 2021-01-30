@@ -85,6 +85,7 @@
     <Compile Include="Model\StockData.cs" />
     <Compile Include="Model\StockLadgerModel.cs" />
     <Compile Include="Model\Supplier.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Model\WorkOrder.cs" />
     <Compile Include="Model\WOWisePeriodicIssueStatementModel.cs" />
