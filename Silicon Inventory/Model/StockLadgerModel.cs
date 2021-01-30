@@ -21,6 +21,7 @@ namespace Silicon_Inventory.Model
         public string WorkOrderNo { get; set; }
         public string itemStart { get; set; }
         public string itemEnd { get; set; }
+        public string itemRange { get; set; }
         public string storeName { get; set; }
     }
 }

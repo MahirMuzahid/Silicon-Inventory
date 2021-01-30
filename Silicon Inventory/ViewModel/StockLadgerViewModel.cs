@@ -215,6 +215,7 @@ namespace Silicon_Inventory.ViewModel
                         DateTime thisVoucherDate = DateTime.ParseExact(allRecieptVocuher[j].RRDate, "dd/M/yyyy", null);
                         if (allRecieptVocuher[j].itemNumber == item[i].itemNumber &&
                             allRecieptVocuher[j].warehouse == wareHouseName.wareHouseName &&
+                            allRecieptVocuher[j].isPrinted == 1 &&
                             (thisVoucherDate >= From && thisVoucherDate <= To))
                         {                          
                             rcpt += allRecieptVocuher[j].RCVQuantity;
@@ -226,6 +227,7 @@ namespace Silicon_Inventory.ViewModel
                         DateTime thisVoucherDate = DateTime.ParseExact(allIssueVoucher[j].IssueVoucherDate, "dd/M/yyyy", null);
                         if (allIssueVoucher[j].itemNumber == item[i].itemNumber &&
                             allIssueVoucher[j].wareHouseName == wareHouseName.wareHouseName &&
+                             allIssueVoucher[j].IsPrinted == 1 &&
                             (thisVoucherDate >= From && thisVoucherDate <= To))
                         {
                             isQ += allIssueVoucher[j].IssueQuantity;
@@ -237,6 +239,7 @@ namespace Silicon_Inventory.ViewModel
                         DateTime thisVoucherDate = DateTime.ParseExact(allRetrunVocuher[j].returnDate, "dd/M/yyyy", null);
                         if (allRetrunVocuher[j].ItemNo == item[i].itemNumber &&
                             allRetrunVocuher[j].ret_warehouse == wareHouseName.wareHouseName &&
+                             allRetrunVocuher[j].isPrinted == 1 &&
                             (thisVoucherDate >= From && thisVoucherDate <= To))
                         {
                             retQ += allRetrunVocuher[j].quentity;
@@ -280,9 +283,11 @@ namespace Silicon_Inventory.ViewModel
                         printList.Add(ShowingReport[i]);
                     }
                 }
+                printList[0].itemRange = "All Item (Exclude 0)";
             }
             else
             {
+                printList[0].itemRange = "All Item";
                 printList = ShowingReport;
             }
             
@@ -606,8 +611,8 @@ namespace Silicon_Inventory.ViewModel
         
         public void PrintNow(int k)
         {
-           if(IsallItemChkChecked == true)
-           {
+            if (IsallItemChkChecked == true)
+            {
                 document.DocumentPaginator.PageSize = pageSize;
                 if (k == 0)
                 {
@@ -623,7 +628,7 @@ namespace Silicon_Inventory.ViewModel
                     }
                 }
                 int sl;
-               
+
                 for (int i = 0; i < item.Count; i++)
                 {
                     ObservableCollection<PrintForSteackLadger> converrtedList = new ObservableCollection<PrintForSteackLadger>();
@@ -634,7 +639,7 @@ namespace Silicon_Inventory.ViewModel
                         PrintForSteackLadger converrted = new PrintForSteackLadger();
                         if (j == 0)
                         {
-                            
+
                             converrted.SL = "Item";
                             converrted.Date = item[i].itemNumber;
                             converrted.Ticket = "";
@@ -648,7 +653,7 @@ namespace Silicon_Inventory.ViewModel
                         }
                         else if (j == StockLadgerListInfo[i].Count)
                         {
-                            
+
                             converrted.SL = "";
                             converrted.Date = "";
                             converrted.Ticket = "";
@@ -665,7 +670,7 @@ namespace Silicon_Inventory.ViewModel
                             rc = rc + StockLadgerListInfo[i][j].RecieptQty;
                             iss = iss + StockLadgerListInfo[i][j].IssueQty;
                             re = re + StockLadgerListInfo[i][j].ReturnQty;
-                           
+
                             converrted.SL = "" + sl;
                             converrted.Date = "" + StockLadgerListInfo[i][j].Date;
                             converrted.Ticket = "" + StockLadgerListInfo[i][j].Ticket;
@@ -678,24 +683,25 @@ namespace Silicon_Inventory.ViewModel
                             converrted.WorkOrderNo = "" + StockLadgerListInfo[i][j].WorkOrderNo;
                             converrted.storename = "" + wareHouseName.wareHouseName;
                             sl++;
-                            
-                        }                     
+
+                        }
                         converrtedList.Add(converrted);
 
                     }
-                    if (converrtedList[converrtedList.Count-1].RecieptQty == "0" && converrtedList[converrtedList.Count-1].IssueQty == "0" && converrtedList[converrtedList.Count-1].ReturnQty == "0" && converrtedList[converrtedList.Count-1].ClosingBalance == "0")
+                    if (converrtedList[converrtedList.Count - 1].RecieptQty == "0" && converrtedList[converrtedList.Count - 1].IssueQty == "0" && converrtedList[converrtedList.Count - 1].ReturnQty == "0" && converrtedList[converrtedList.Count - 1].ClosingBalance == "0")
                     {
                         continue;
                     }
                     else
                     {
                         converrtedListList.Add(converrtedList);
-                    }                       
+                    }
                 }
+                converrtedListList[0][0].itemRange = "All Item (Exclude 0)";
                 PrintStockLadgerDetail print = new PrintStockLadgerDetail(converrtedListList);
-           }
-           else if(IssItemChkChecked == true)
-           {
+            }
+            else if (IssItemChkChecked == true)
+            {
                 showDetail(itemNumberStart.itemNumber, 0);
                 ObservableCollection<PrintForSteackLadger> converrtedList = new ObservableCollection<PrintForSteackLadger>();
                 sl = 1;
@@ -754,12 +760,96 @@ namespace Silicon_Inventory.ViewModel
                         converrtedList.Add(converrted);
                     }
 
-
                 }
                 converrtedListList.Add(converrtedList);
+                converrtedListList[0][0].itemRange = itemNumberStart.itemNumber;
                 PrintStockLadgerDetail print = new PrintStockLadgerDetail(converrtedListList);
-           }         
+            }
+            else
+            {
+                document.DocumentPaginator.PageSize = pageSize;
+                if (k == 0)
+                {
+                    StockLadgerListInfo.Add(printList);
+                }
+                else
+                {
+                    for (int i = 0; i < item.Count; i++)
+                    {
+                        showDetail(item[i].itemNumber, 1);
+                        StockLadgerListInfo.Add(printList);
+
+                    }
+                }
+                int sl;
+
+                for (int i = 0; i < item.Count; i++)
+                {
+                    ObservableCollection<PrintForSteackLadger> converrtedList = new ObservableCollection<PrintForSteackLadger>();
+                    sl = 1;
+                    int rc = 0, iss = 0, re = 0;
+                    for (int j = 0; j < StockLadgerListInfo[i].Count + 1; j++)
+                    {
+                        PrintForSteackLadger converrted = new PrintForSteackLadger();
+                        if (j == 0)
+                        {
+
+                            converrted.SL = "Item";
+                            converrted.Date = item[i].itemNumber;
+                            converrted.Ticket = "";
+                            converrted.Type = "";
+                            converrted.OpeningBalance = "";
+                            converrted.RecieptQty = "";
+                            converrted.IssueQty = "";
+                            converrted.ReturnQty = "";
+                            converrted.ClosingBalance = "";
+                            converrted.WorkOrderNo = "";
+                        }
+                        else if (j == StockLadgerListInfo[i].Count)
+                        {
+
+                            converrted.SL = "";
+                            converrted.Date = "";
+                            converrted.Ticket = "";
+                            converrted.Type = "Total";
+                            converrted.OpeningBalance = "";
+                            converrted.RecieptQty = "" + rc;
+                            converrted.IssueQty = "" + iss;
+                            converrted.ReturnQty = "" + re;
+                            converrted.ClosingBalance = "" + ((rc + re) - iss);
+                            converrted.WorkOrderNo = "";
+                        }
+                        else
+                        {
+                            rc = rc + StockLadgerListInfo[i][j].RecieptQty;
+                            iss = iss + StockLadgerListInfo[i][j].IssueQty;
+                            re = re + StockLadgerListInfo[i][j].ReturnQty;
+
+                            converrted.SL = "" + sl;
+                            converrted.Date = "" + StockLadgerListInfo[i][j].Date;
+                            converrted.Ticket = "" + StockLadgerListInfo[i][j].Ticket;
+                            converrted.Type = "" + StockLadgerListInfo[i][j].Type;
+                            converrted.OpeningBalance = "" + StockLadgerListInfo[i][j].OpeningBalance;
+                            converrted.RecieptQty = "" + StockLadgerListInfo[i][j].RecieptQty;
+                            converrted.IssueQty = "" + StockLadgerListInfo[i][j].IssueQty;
+                            converrted.ReturnQty = "" + StockLadgerListInfo[i][j].ReturnQty;
+                            converrted.ClosingBalance = "" + StockLadgerListInfo[i][j].ClosingBalance;
+                            converrted.WorkOrderNo = "" + StockLadgerListInfo[i][j].WorkOrderNo;
+                            converrted.storename = "" + wareHouseName.wareHouseName;
+                            sl++;
+
+                        }
+                        converrtedList.Add(converrted);
+
+                    }
+                    converrtedListList.Add(converrtedList);
+                }
+               
+                converrtedListList[0][0].itemRange = "All Item";
+                PrintStockLadgerDetail print = new PrintStockLadgerDetail(converrtedListList);
+            }
         }
+        #region Sort 
         public void SortSL(int order)
         {
             if (order == 0)
@@ -1024,6 +1114,7 @@ namespace Silicon_Inventory.ViewModel
                 typeOrder = 0;
             }
         }
+        #endregion
         #endregion
 
         #region Veriable Binding

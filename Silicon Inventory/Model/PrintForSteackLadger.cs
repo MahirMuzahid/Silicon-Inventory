@@ -21,6 +21,7 @@ namespace Silicon_Inventory.Model
         public string ReturnQty { get; set; }
         public string color { get; set; }
         public string ClosingBalance { get; set; }
+        public string itemRange { get; set; }
         public string WorkOrderNo { get; set; }
         public string storename { get; set; }
 

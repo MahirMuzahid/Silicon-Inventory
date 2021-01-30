@@ -35,7 +35,7 @@ namespace Silicon_Inventory.View
             DataContext = new printStockLadgerViewModel();
             storeName.Content = "Store Name: " + itemInfo[0][0].storename;
             reportDate.Content = "Reporting Date: " + DateTime.Now.ToString("dd/M/yyyy");
-            itemRange.Content = "Item Range: ";
+            itemRange.Content = "Item Range: " + itemInfo[0][0].itemRange;
             placeLineinGrid();
         }
         FixedPage fixedPage = new FixedPage();
@@ -281,16 +281,17 @@ namespace Silicon_Inventory.View
             ((IAddChild)pageContent).AddChild(fixedPage);
             document.Pages.Add(pageContent);          
         }
-
+        int pageNo=1;
         public FixedPage PrintAnotherPage (ObservableCollection<ObservableCollection<PrintForSteackLadger>> allit, int lastIt, int lastInfo)
         {
+            pageNo++;
             // Create Fixed Page.
             FixedPage fp = new FixedPage();
             fp.Width = pageSize.Width;
             fp.Height = pageSize.Height;
 
             // Add visual, measure/arrange page.
-            PrintPeriodicStockLedgerPages print = new PrintPeriodicStockLedgerPages(allit, lastIt, lastInfo);
+            PrintPeriodicStockLedgerPages print = new PrintPeriodicStockLedgerPages(allit, lastIt, lastInfo, pageNo);
             fp.Children.Add((UIElement) print);
             fp.Measure(pageSize);
             fp.Arrange(new Rect(new Point(), pageSize));

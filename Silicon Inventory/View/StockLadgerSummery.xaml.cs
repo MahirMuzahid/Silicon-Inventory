@@ -30,6 +30,7 @@ namespace Silicon_Inventory.View
             {
                 storeName.Content = "Store Name: " + StaticPageForAllData.printStockLadgerSummery[0].storeName;
                 reportDate.Content = "Reporting Date: " + DateTime.Now.ToString("dd/M/yyyy");
+                itemRange.Content = "Item Range: " + StaticPageForAllData.printStockLadgerSummery[0].itemRange; ;
                 placeLineinGrid();
             }
         }

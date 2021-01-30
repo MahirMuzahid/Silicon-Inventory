@@ -154,7 +154,7 @@ namespace Silicon_Inventory.ViewModel
             int sl = 1;
             for (int i = 0; i < allIssueVoucher.Count; i++)
             {
-                if(allIssueVoucher[i].IssueVoucherID == requisition.IssueVoucherID)
+                if(allIssueVoucher[i].IssueVoucherID == requisition.IssueVoucherID && allIssueVoucher[i].IsPrinted == 1)
                 {
                     for (int k = 0; k < stockData.Count; k++)
                     {

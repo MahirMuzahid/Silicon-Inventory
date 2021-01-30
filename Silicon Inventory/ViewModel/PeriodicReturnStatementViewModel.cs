@@ -134,7 +134,7 @@ namespace Silicon_Inventory.ViewModel
                 ReturnVoucher obj = new ReturnVoucher();
                 DateTime thisVoucherDate = DateTime.ParseExact(AllRetrunVoucher[i].returnDate, "dd/M/yyyy", null);
                 if ((thisVoucherDate >= From && thisVoucherDate <= To) && wareHouseName.wareHouseName == AllRetrunVoucher[i].ret_warehouse && 
-                    AllRetrunVoucher[i].condition == conditionNew && AllRetrunVoucher[i].ret_type == typenew)
+                    AllRetrunVoucher[i].condition == conditionNew && AllRetrunVoucher[i].ret_type == typenew && AllRetrunVoucher[i].isPrinted == 1)
                 {
                     obj.SL = sl;
                     obj.retID = AllRetrunVoucher[i].retID;

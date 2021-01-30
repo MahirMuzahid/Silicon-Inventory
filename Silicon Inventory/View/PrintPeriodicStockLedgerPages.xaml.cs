@@ -24,10 +24,10 @@ namespace Silicon_Inventory.View
     {
         ObservableCollection<ObservableCollection<PrintForSteackLadger>> item = new ObservableCollection<ObservableCollection<PrintForSteackLadger>>();
         int LastItem = 0; int LastInfo = 0;
-        public PrintPeriodicStockLedgerPages(ObservableCollection<ObservableCollection<PrintForSteackLadger>> allit, int lastIt, int lastInfo)
+        public PrintPeriodicStockLedgerPages(ObservableCollection<ObservableCollection<PrintForSteackLadger>> allit, int lastIt, int lastInfo, int pagno)
         {
             InitializeComponent();
-            pageno.Content = "Page: " + StaticPageForAllData.pageNumber; ;
+            pageno.Content = "Page: " + pagno;
             item = allit;
             LastItem = lastIt;
             LastInfo = lastInfo;
@@ -36,7 +36,6 @@ namespace Silicon_Inventory.View
         public void placeLineinGrid()
         {
             int startlng;
-            pageno.Content = "Page: " + StaticPageForAllData.PrintedpageNumber; ;
             int prvlineLength = 21;
             int lineno = 0;
             ObservableCollection<PrintForSteackLadger> showThisPage = new ObservableCollection<PrintForSteackLadger>();
