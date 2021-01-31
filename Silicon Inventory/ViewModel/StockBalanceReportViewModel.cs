@@ -64,7 +64,19 @@ namespace Silicon_Inventory.ViewModel
 
         }
 
-       
+        public async Task Fresh()
+        {
+            StaticPageForAllData refresh = new StaticPageForAllData();
+            await refresh.GetAllData().ConfigureAwait(false);
+
+            warehouse = StaticPageForAllData.WareHouse;
+            stockData = StaticPageForAllData.StockData;
+            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
+
+            ObservableCollection<StockData> fresh = new ObservableCollection<StockData>();
+            ShowingReport = fresh;
+        }
         public void ShowReport()
         {
             int sl = 1;
@@ -139,7 +151,13 @@ namespace Silicon_Inventory.ViewModel
             }
             //up = new UpdateViewCommand(viewModel);
         }
-
+        public void checkData()
+        {
+            if(itemNumberStart != null && itemNumberEnd != null && wareHouseName != null)
+            {
+                ShowReport();
+            }
+        }
         public void sendMsg(string msg, int msgOrError)
         {
             if (msgOrError == 0)
@@ -269,8 +287,8 @@ namespace Silicon_Inventory.ViewModel
         public ObservableCollection<IssueVoucher> allIssueVoucher { get { return _allIssueVoucher; } set { _allIssueVoucher = value; OnPropertyChanged(nameof(allIssueVoucher)); } }
         public ObservableCollection<StockData> ShowingReport { get { return _ShowingReport; } set { _ShowingReport = value; OnPropertyChanged(nameof(ShowingReport)); } }
         public string conNameLbl { get { return _conNameLbl; } set { _conNameLbl = value; OnPropertyChanged(nameof(conNameLbl)); } }
-        public Item itemNumberEnd { get { return _itemNumberEnd; } set { _itemNumberEnd = value; ShowReport(); OnPropertyChanged(nameof(itemNumberEnd)); } }
-        public Item itemNumberStart { get { return _itemNumberStart; } set { _itemNumberStart = value; if (enbaleItem2 == true) { ShowReport(); } enbaleItem2 = true; OnPropertyChanged(nameof(itemNumberStart)); } }
+        public Item itemNumberEnd { get { return _itemNumberEnd; } set { _itemNumberEnd = value; checkData(); OnPropertyChanged(nameof(itemNumberEnd)); } }
+        public Item itemNumberStart { get { return _itemNumberStart; } set { _itemNumberStart = value; if (enbaleItem2 == true) { checkData(); } enbaleItem2 = true; OnPropertyChanged(nameof(itemNumberStart)); } }
         public ObservableCollection<Item> item { get { return _item; } set { _item = value; OnPropertyChanged(nameof(item)); } }
         public string woLbl { get { return _woLbl; } set { _woLbl = value; OnPropertyChanged(nameof(woLbl)); } }
 
@@ -289,17 +307,10 @@ namespace Silicon_Inventory.ViewModel
             set
             {
                 _wareHouseName = value;
-                if (itemNumberStart != null && itemNumberEnd != null)
-                {
-                    ShowReport();
-                }
-                if (wareHouseName.wareHouseName != null)
-                {
-                    IsprintEnable = false;
-                    enbaleItem = true;
-                    enbaleItem2 = false;
-                  
-                }
+                enbaleItem = true;
+                enbaleItem2 = true;
+                checkData();
+                
                 OnPropertyChanged(nameof(wareHouseName));
             }
         }
@@ -343,7 +354,10 @@ namespace Silicon_Inventory.ViewModel
             {
                 viewModel.printInPrinter();
             }
-
+            else if (parameter.ToString() == "refresh")
+            {
+                viewModel.Fresh();
+            }
         }
 
 

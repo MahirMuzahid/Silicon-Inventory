@@ -114,8 +114,24 @@ namespace Silicon_Inventory.ViewModel
             allItemEnabled = false;
             sItemEnabled = false;
         }
-        
-       
+
+        public async Task Fresh()
+        {
+            StaticPageForAllData refresh = new StaticPageForAllData();
+            await refresh.GetAllData().ConfigureAwait(false);
+
+            contructor = StaticPageForAllData.Contructor;
+            warehouse = StaticPageForAllData.WareHouse;
+            workorder = StaticPageForAllData.WorkOrder;
+            item = StaticPageForAllData.Items;
+            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            allRetrunVocuher = StaticPageForAllData.AllReturnVoucher;
+            stockData = StaticPageForAllData.StockData;
+            allRecieptVocuher = StaticPageForAllData.AllReceiptVoucher;
+
+            ObservableCollection<StockLadgerModel> fresh = new ObservableCollection<StockLadgerModel>();
+            ShowingReport = fresh;
+        }
         public void SortDateInList ()
         {
             if(ShowingReport != null)
@@ -1246,6 +1262,10 @@ namespace Silicon_Inventory.ViewModel
                     viewModel.PrintNow(1);
                 }
                 
+            }
+            else if (parameter.ToString() == "refresh")
+            {
+                viewModel.Fresh();
             }
 
         }

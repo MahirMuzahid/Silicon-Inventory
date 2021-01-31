@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -91,7 +92,8 @@ namespace Silicon_Inventory.ViewModel
         #endregion
 
         public MeterialReceiptViewModel()
-        {           
+        {
+            StaticPageForAllData.isGoingNewView = false;
             firstStart = 1;
             Updater = new UpdaterForReceipt(this);
             Contructor = new ObservableCollection<Contructor>();
@@ -99,6 +101,27 @@ namespace Silicon_Inventory.ViewModel
             WareHouse = new ObservableCollection<Warehouse>();
             Supplier = new ObservableCollection<Supplier>();
             GetAllInfo();
+            Thread th = new Thread(() =>
+            {
+                while (true)
+                {
+
+                    if (StaticPageForAllData.isOnline)
+                    {
+                        newVoucherVisibility = "Hidden";
+
+                    }
+                    else
+                    {
+                        newVoucherVisibility = "Visible";
+                    }
+                    if (StaticPageForAllData.isGoingNewView)
+                    {
+                        break;
+                    }
+                }
+            });
+            th.Start();
         }
 
         public async void GetAllInfo()

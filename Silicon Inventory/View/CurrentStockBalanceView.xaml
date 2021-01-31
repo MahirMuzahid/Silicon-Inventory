@@ -432,7 +432,14 @@
                 </Grid.RowDefinitions>
                 <Label Content="Stock Balance" Grid.ColumnSpan="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
                 <Label Content="Warehouse" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <Label Content="Last Saved: 31.12.2020" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Grid Grid.Row="0" Grid.Column="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width=".05*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Refresh" Grid.Column="1" Margin="0,6,0,0" BorderBrush="Transparent" Command="{Binding Updater}" CommandParameter="refresh"/>
+                </Grid>
                 <ComboBox Grid.Row="2" Grid.Column="1" TextSearch.TextPath ="wareHouseName" SelectedItem="{Binding wareHouseName}" ItemsSource="{Binding Path= warehouse}"  IsEditable="True"  Style="{DynamicResource ComboBoxStyle1}" Foreground="#404040" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>

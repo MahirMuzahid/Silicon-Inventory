@@ -85,9 +85,10 @@ namespace Silicon_Inventory.ViewModel
 
         public IssueMeterialViewModel()
         {
-            StaticPageForAllData.isGoingNewView = false;
+            
             Updater = new Updater(this);
             GetAllInfoAsync();
+            StaticPageForAllData.isGoingNewView = false;
             Thread th = new Thread(() =>
             {
                 while (true)

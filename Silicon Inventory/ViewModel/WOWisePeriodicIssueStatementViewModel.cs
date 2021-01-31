@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -63,7 +64,22 @@ namespace Silicon_Inventory.ViewModel
             allRetrunVocuher = StaticPageForAllData.AllReturnVoucher;
             stockData = StaticPageForAllData.StockData;
         }
+        public async Task Fresh()
+        {
+            StaticPageForAllData refresh = new StaticPageForAllData();
+            await refresh.GetAllData().ConfigureAwait(false);
 
+            contructor = StaticPageForAllData.Contructor;
+            warehouse = StaticPageForAllData.WareHouse;
+            workorder = StaticPageForAllData.WorkOrder;
+            item = StaticPageForAllData.Items;
+            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            allRetrunVocuher = StaticPageForAllData.AllReturnVoucher;
+            stockData = StaticPageForAllData.StockData;
+
+            ObservableCollection<WOWisePeriodicIssueStatementModel> fresh = new ObservableCollection<WOWisePeriodicIssueStatementModel>();
+            ShowingReport = fresh;
+        }
         public void ShowList()
         {
             sl = 1;
@@ -586,6 +602,10 @@ namespace Silicon_Inventory.ViewModel
             else if (parameter.ToString() == "print")
             {
                 viewModel.printInPrinter();
+            }
+            else if (parameter.ToString() == "refresh")
+            {
+                viewModel.Fresh();
             }
 
         }

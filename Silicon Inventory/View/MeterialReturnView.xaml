@@ -693,6 +693,9 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
+                <StackPanel Grid.Row ="4" Grid.RowSpan="2" Grid.ColumnSpan="4"  Background="#50000000" Visibility="{Binding newVoucherVisibility}">
+
+                </StackPanel>
             </Grid>
             <Popup Grid.RowSpan="3" IsOpen="True" StaysOpen="True" Placement="Center" Height="300" Width="600" AllowsTransparency="True" >
                 <Border Background="#50000000" BorderBrush="#80000000" BorderThickness="3"  Visibility="{Binding popUpVisibility}">

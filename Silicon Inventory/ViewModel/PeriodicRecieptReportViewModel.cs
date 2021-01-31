@@ -56,7 +56,18 @@ namespace Silicon_Inventory.ViewModel
             AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
         }
 
-
+        public async Task Fresh()
+        {
+            Warehouse swh = new Warehouse();
+            swh = wareHouseName;
+            StaticPageForAllData refresh = new StaticPageForAllData();
+            await refresh.GetAllData().ConfigureAwait(false) ;
+            warehouse = StaticPageForAllData.WareHouse;
+            stockData = StaticPageForAllData.StockData;
+            AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
+            ObservableCollection<PeriodicRecieptReportModel> fresh = new ObservableCollection<PeriodicRecieptReportModel>();
+            ShowingReport = fresh ;
+        }
         
 
         public void checkDate()
@@ -414,6 +425,10 @@ namespace Silicon_Inventory.ViewModel
             else if (parameter.ToString() == "print")
             {
                 viewModel.printInPrinter();
+            }
+            else if (parameter.ToString() == "refresh")
+            {
+                viewModel.Fresh();
             }
 
         }

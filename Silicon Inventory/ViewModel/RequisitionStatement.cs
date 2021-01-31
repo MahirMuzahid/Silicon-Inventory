@@ -56,6 +56,20 @@ namespace Silicon_Inventory.ViewModel
             AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
                       
         }
+        public async Task Fresh()
+        {
+            StaticPageForAllData refresh = new StaticPageForAllData();
+            await refresh.GetAllData().ConfigureAwait(false);
+
+            warehouse = StaticPageForAllData.WareHouse;
+            stockData = StaticPageForAllData.StockData;
+            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
+            stockData = StaticPageForAllData.StockData;
+
+            ObservableCollection<IssueVoucher> fresh = new ObservableCollection<IssueVoucher>();
+            ShowingReport = fresh;
+        }
         public void printInPrinter()
         {
             
