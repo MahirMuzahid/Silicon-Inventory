@@ -147,7 +147,7 @@ namespace Silicon_Inventory.ViewModel
             user = StaticPageForAllData.Users;
             passEn = true;
             usEn = true;
-            //LoadingVisibility = "Hidden";
+            LoadingVisibility = "Hidden";
         }
 
 

@@ -12,8 +12,10 @@
         <DataTemplate DataType="{x:Type viewmodels:DashBoardViewModel}">
             <views:Dashboard/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AddItemViewModel}">
+            <views:AddItemView/>
+        </DataTemplate>
 
-        
         <DataTemplate DataType="{x:Type viewmodels:IssueMeterialViewModel}">
             <views:IssueMeterialView/>
         </DataTemplate >

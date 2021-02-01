@@ -68,6 +68,10 @@ namespace Silicon_Inventory.Commands
             {
                 viewModel.SelectedViewModel = new StockLadgerViewModel();
             }
+            else if (parameter.ToString() == "add_item")
+            {
+                viewModel.SelectedViewModel = new AddItemViewModel();
+            }
         }
 
     }

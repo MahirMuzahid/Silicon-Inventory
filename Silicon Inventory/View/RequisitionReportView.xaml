@@ -405,9 +405,7 @@
         </Style>
 
     </UserControl.Resources>
-
-
-
+    
     <Grid>
         <Grid Background="White">
             <Grid.RowDefinitions>

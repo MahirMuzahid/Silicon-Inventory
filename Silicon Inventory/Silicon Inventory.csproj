@@ -89,6 +89,7 @@
     <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Model\WorkOrder.cs" />
     <Compile Include="Model\WOWisePeriodicIssueStatementModel.cs" />
+    <Compile Include="ViewModel\AddItemViewModel.cs" />
     <Compile Include="ViewModel\CommandHandler.cs" />
     <Compile Include="ViewModel\MeterialReceiptViewModel.cs" />
     <Compile Include="ViewModel\MeterialReturnViewModel.cs" />
