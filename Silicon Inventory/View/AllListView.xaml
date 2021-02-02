@@ -442,7 +442,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#78F3AB "></StackPanel>
                         <Label Content="Contructor List" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Contructor" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#78F3AB" BorderBrush="#38CA74"/>
+                        <Button Content="Add Contructor" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#78F3AB" BorderBrush="#38CA74"  Command="{Binding Updater}" CommandParameter="con"/>
                         <ListView ItemsSource="{Binding ConList}" x:Name='reportList' Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
@@ -513,7 +513,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#8DD5F0"></StackPanel>
                         <Label Content="Work Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Work Order" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#8DD5F0 " BorderBrush="#3E97B9 "/>
+                        <Button Content="Add Work Order" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#8DD5F0 " BorderBrush="#3E97B9" Command="{Binding Updater}" CommandParameter="wo"/>
                         <ListView ItemsSource="{Binding woList}"  Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
@@ -584,7 +584,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#998FF6  "></StackPanel>
                         <Label Content="Supplier List" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Supplier" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#998FF6 " BorderBrush="#5448CC "/>
+                        <Button Content="Add Supplier" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#998FF6 " BorderBrush="#5448CC"  Command="{Binding Updater}" CommandParameter="sup"/>
                         <ListView ItemsSource="{Binding supList}"  Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
@@ -655,7 +655,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#ECE987  "></StackPanel>
                         <Label Content="Store List" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Store" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#ECE987 " BorderBrush="#B9B530 "/>
+                        <Button Content="Add Store" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#ECE987 " BorderBrush="#B9B530" Command="{Binding Updater}" CommandParameter="store"/>
                         <ListView ItemsSource="{Binding storeList}"  Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
@@ -696,6 +696,72 @@
                 </Grid>
                 
             </Grid>
+
+
+
+
+            <StackPanel Grid.RowSpan="2" Background="#50000000" Visibility="{Binding addWindowVisibility}"/>
+            
+            
+            <Grid Grid.RowSpan="2" Grid.ColumnSpan="2" Visibility="{Binding addWindowVisibility}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width=".5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".8*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height=".8*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFFF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Exit" Grid.Row="0" Grid.Column="1" Background="#E46868 " Foreground="White" BorderBrush="Transparent" Command="{Binding Updater}" CommandParameter="exit"/>
+                    <Label Content="{Binding adName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="15" FontWeight="DemiBold"/>
+                    <Button Content="Add" Grid.ColumnSpan="2" Grid.Row="2" Background="#91D944" BorderBrush="Transparent" IsEnabled="{Binding addEnabled}"/>
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width=".2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height=".6*"/>
+                            <RowDefinition Height=".4*"/>
+                            <RowDefinition Height=".6*"/>
+                            <RowDefinition Height=".4*"/>
+                            <RowDefinition Height=".6*"/>
+                            <RowDefinition Height=".4*"/>
+                            <RowDefinition Height=".5*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="{Binding nextID}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontWeight="DemiBold"/>
+
+
+                        <TextBox Text="{Binding txbx1, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="1" Background="#10000000" BorderBrush="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#474747 "/>
+                        <TextBox Text="{Binding txbx2, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="2" Background="#10000000" BorderBrush="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#474747 " Visibility="{Binding lastVisibility}"/>
+                        <TextBox Text="{Binding txbx3, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="3" Background="#10000000" BorderBrush="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#474747 " Visibility="{Binding lastVisibility}"/>
+
+                        <Label Content="{Binding lbl1}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"/>
+                        <Label Content="{Binding lbl2}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="4" Visibility="{Binding lastVisibility}"/>
+                        <Label Content="{Binding lbl3}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="4" Visibility="{Binding lastVisibility}"/>
+
+                        
+                    </Grid>
+                </Grid>
+            </Grid>
+            
         </Grid>
     </Grid>
 </UserControl>
