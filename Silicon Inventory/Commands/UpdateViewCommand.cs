@@ -72,6 +72,10 @@ namespace Silicon_Inventory.Commands
             {
                 viewModel.SelectedViewModel = new AddItemViewModel();
             }
+            else if (parameter.ToString() == "all_list")
+            {
+                viewModel.SelectedViewModel = new AllListViewModel();
+            }
         }
 
     }

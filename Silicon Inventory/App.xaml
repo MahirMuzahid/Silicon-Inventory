@@ -50,6 +50,9 @@
         <DataTemplate DataType="{x:Type viewmodels:StockLadgerViewModel}">
             <views:StockLadgerDetails/>
         </DataTemplate >
+        <DataTemplate DataType="{x:Type viewmodels:AllListViewModel}">
+            <views:AllListView/>
+        </DataTemplate >
     </Application.Resources>
    
 </Application>

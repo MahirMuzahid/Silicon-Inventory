@@ -90,6 +90,7 @@
     <Compile Include="Model\WorkOrder.cs" />
     <Compile Include="Model\WOWisePeriodicIssueStatementModel.cs" />
     <Compile Include="ViewModel\AddItemViewModel.cs" />
+    <Compile Include="ViewModel\AllListViewModel.cs" />
     <Compile Include="ViewModel\CommandHandler.cs" />
     <Compile Include="ViewModel\MeterialReceiptViewModel.cs" />
     <Compile Include="ViewModel\MeterialReturnViewModel.cs" />
@@ -103,6 +104,9 @@
     <Compile Include="ViewModel\WOWisePeriodicIssueStatementViewModel.cs" />
     <Compile Include="View\AddItemView.xaml.cs">
       <DependentUpon>AddItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AllListView.xaml.cs">
+      <DependentUpon>AllListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ContructorListView.xaml.cs">
       <DependentUpon>ContructorListView.xaml</DependentUpon>
@@ -183,6 +187,10 @@
       <DependentUpon>WOWisePrint.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AllListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
