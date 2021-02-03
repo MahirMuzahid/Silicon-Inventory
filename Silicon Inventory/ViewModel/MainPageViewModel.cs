@@ -23,6 +23,7 @@ namespace Silicon_Inventory.ViewModel
         public string _userName { get; set; }
         public string _onlinetxt { get; set; }
         public string _onlinetxtColoe { get; set; }
+        public string _operatorVisibility { get; set; }
         public bool _usEn { get; set; }
         public bool _passEn { get; set; }
         public ObservableCollection<User> user = new ObservableCollection<User>();
@@ -42,35 +43,51 @@ namespace Silicon_Inventory.ViewModel
         public string userName { get { return _userName; } set { _userName = value; OnPropertyChanged(nameof(userName)); } }
         public string onlinetxt { get { return _onlinetxt; } set { _onlinetxt = value; OnPropertyChanged(nameof(onlinetxt)); } }
         public string onlinetxtColoe { get { return _onlinetxtColoe; } set { _onlinetxtColoe = value; OnPropertyChanged(nameof(onlinetxtColoe)); } }
+        public string operatorVisibility { get { return _operatorVisibility; } set { _operatorVisibility = value; OnPropertyChanged(nameof(operatorVisibility)); } }
         public bool usEn { get { return _usEn; } set { _usEn = value; OnPropertyChanged(nameof(usEn)); } }
         public bool passEn { get { return _passEn; } set { _passEn = value; OnPropertyChanged(nameof(passEn)); } }
         public string usersTxt { get { return _usersTxt; } set 
             
             { _usersTxt = value;
-                
-                for(int i = 0; i < user.Count; i++)
+                int userIndex = 0;
+                for (int i = 0; i < user.Count; i++)
                 {
                     if(user[i].userName == usersTxt)
                     {
                         IsRightusInfo = true;
+                        userIndex = i;
                     }
                 }
                 
                 if(IsRightpassInfo == true && IsRightusInfo == true)
                 {
+                    onlinetxtColoe = "LightSeaGreen";
+                    onlinetxt = "Online";
                     LoadingVisibility = "Hidden";
+                    if (user[userIndex].userType == "operator")
+                    {
+                        StaticPageForAllData.isOperator = true;
+                        operatorVisibility = "Hidden";
+                    }
+                    else
+                    {
+                        StaticPageForAllData.isOperator = false;
+                        operatorVisibility = "Visible";
+                    }
                 }
                 OnPropertyChanged(nameof(usersTxt)); } }
         public string passTxt { get { return _passTxt; } set 
             
             { _passTxt = value;
-
+                int userIndex = 0;
                 for (int i = 0; i < user.Count; i++)
                 {
                     if (user[i].password == passTxt)
                     {
                         userName = user[i].userName;
+
                         IsRightpassInfo = true;
+                        userIndex = i;
                     }
                 }
                 if (IsRightpassInfo == true && IsRightusInfo == true)
@@ -78,12 +95,24 @@ namespace Silicon_Inventory.ViewModel
                     onlinetxtColoe = "LightSeaGreen";
                     onlinetxt = "Online";
                     LoadingVisibility = "Hidden";
+                    if(user[userIndex].userType == "operator")
+                    {
+                        StaticPageForAllData.isOperator = true;
+                        operatorVisibility = "Hidden";
+                    }
+                    else
+                    {
+                        StaticPageForAllData.isOperator = false;
+                        operatorVisibility = "Visible";
+                    }
+                    
                 }               
                 OnPropertyChanged(nameof(passTxt)); } }
         public ICommand UpdateViewCommand { get; set; }
         StaticPageForAllData getData = new StaticPageForAllData();
         public MainPageViewModel()
         {
+            operatorVisibility = "Hidden";
             passEn = false;
             usEn = false;
             IsRightpassInfo = false;
@@ -147,7 +176,6 @@ namespace Silicon_Inventory.ViewModel
             user = StaticPageForAllData.Users;
             passEn = true;
             usEn = true;
-            LoadingVisibility = "Hidden";
         }
 
 
@@ -164,33 +192,6 @@ namespace Silicon_Inventory.ViewModel
                 return false;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

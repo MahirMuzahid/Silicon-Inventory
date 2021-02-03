@@ -46,6 +46,7 @@ namespace Silicon_Inventory.Model
         public string error { get; set; }
         public static bool isOnline { get; set; }
         public static bool isGoingNewView { get; set; }
+        public static bool isOperator { get; set; }
 
         public async Task GetAllData ()
         {

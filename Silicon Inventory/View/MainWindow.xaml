@@ -152,9 +152,9 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height=".05*"/>
+                <RowDefinition Height=".05*"/>
                 <RowDefinition Height=".05*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -177,50 +177,50 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <Button Content="Dashboard" Grid.Column="1" FontSize="15" Grid.Row="1" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold"  Command="{Binding UpdateViewCommand}" CommandParameter="dashboard"/>
+            <Button Content="Main Window" Grid.Column="1" FontSize="15" Grid.Row="1" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold"  Command="{Binding UpdateViewCommand}" CommandParameter="dashboard"/>
 
             <Image Source="/Asset/dashboard_ico.png" Grid.Row="1" Grid.Column="0" Margin="0,5,0,5" HorizontalAlignment="Right" VerticalAlignment="Center" />
 
             <Label Content="Reciepts And Issues" Grid.Row="2" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
             <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="3" Margin="30,0,30,0"/>
             <Button Content="Meterial Issue" Grid.Column="1" FontSize="14" Grid.Row="4" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="issue_meterial"/>
-            <Button Content="Print Issue Voucher" Grid.Column="1" FontSize="14" Grid.Row="5" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="prt_issue_vouc"/>
-            <Button Content="Meterial Receipt" Grid.Column="1" FontSize="14" Grid.Row="6" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="met_recp"/>
-            <Button Content="Print Receipt Voucher" Grid.Column="1" FontSize="14" Grid.Row="7" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold"  Command="{Binding UpdateViewCommand}" CommandParameter="prt_rcpt_vouc"/>
-            <Button Content="Meterial Return" Grid.Column="1" FontSize="14" Grid.Row="8" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="mt_return"/>
-            <Button Content="Print Return Voucher" Grid.Column="1" FontSize="14" Grid.Row="9" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="prt_return_vouc"/>
+            
+            <Button Content="Meterial Receipt" Grid.Column="1" FontSize="14" Grid.Row="5" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="met_recp"/>
+          
+            <Button Content="Meterial Return" Grid.Column="1" FontSize="14" Grid.Row="6" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="mt_return"/>
+           
 
             <Image Source="/Asset/met_iisue_ico.png" Grid.Row="4" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/print_issue_ico.png" Grid.Row="5" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/met_rec_icon.png" Grid.Row="6" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            <Image Source="/Asset/print_issue_ico.png" Grid.Row="7" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/return_ico.png" Grid.Row="8" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/print_issue_ico.png" Grid.Row="9" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            
+            <Image Source="/Asset/met_rec_icon.png" Grid.Row="5" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            
+            <Image Source="/Asset/return_ico.png" Grid.Row="6" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+           
 
 
             <Label Content="Reciepts And Issues Report" Grid.Row="10" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
             <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="11" Margin="30,0,30,0"/>
             <Button Content="Periodic Receipt Report" Grid.Column="1" FontSize="14" Grid.Row="12" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="periodic_rpt_rcpt"/>
             <Button Content="WO Wise Period Issue Statement" Grid.Column="1" FontSize="14" Grid.Row="13" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="WO_issue_stmt" />
-            <Button Content="Contructor Wise Periodic Issue Statement" Grid.Column="1" FontSize="14" Grid.Row="14" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="con_issue_vouc"/>
-            <Button Content="Periodic Return Statement" Grid.Column="1" FontSize="14" Grid.Row="15" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="periodic_return_stmt"/>
-            <Button Content="Requisition Report" Grid.Column="1" FontSize="14" Grid.Row="16" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="req.stt"/>
+            
+            <Button Content="Periodic Return Statement" Grid.Column="1" FontSize="14" Grid.Row="14" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="periodic_return_stmt"/>
+            <Button Content="Requisition Report" Grid.Column="1" FontSize="14" Grid.Row="15" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="req.stt"/>
 
             <Image Source="/Asset/recpt_report_ico.png" Grid.Row="12" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
             <Image Source="/Asset/wo_recpt_report_ico.png" Grid.Row="13" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            
             <Image Source="/Asset/recpt_report_ico.png" Grid.Row="14" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/recpt_report_ico.png" Grid.Row="15" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/requisition_ico.png" Grid.Row="16" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Image Source="/Asset/requisition_ico.png" Grid.Row="15" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
 
             <Label Content="Stock Report" Grid.Row="17" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
             <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="18" Margin="30,0,30,0"/>
             <Button Content="Current Stock Balance" Grid.Column="1" FontSize="14" Grid.Row="19" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="crrsttblnc" />
             <Button Content="Stock Ladger Details" Grid.Column="1" FontSize="14" Grid.Row="20" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="stock_ld_dtl"/>
-            <Button Content="Store Ladger Summery" Grid.Column="1" FontSize="14" Grid.Row="21" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="stock_ld_sum"/>
+            
 
             <Image Source="/Asset/stock_blnc_ico.png" Grid.Row="19" Grid.Column="0" Margin="0,6,0,6" HorizontalAlignment="Right" VerticalAlignment="Center" />
             <Image Source="/Asset/stock_ldg_detail_ico.png" Grid.Row="20" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/recpt_report_ico.png" Grid.Row="21" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            
 
             <Label Content="Item Control" Grid.Row="22" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
             <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="23" Margin="30,0,30,0"/>
@@ -230,19 +230,12 @@
             <Image Source="/Asset/search_item_ico.png" Grid.Row="24" Grid.Column="0" Margin="0,10,0,10" HorizontalAlignment="Right" VerticalAlignment="Center" />
             <Image Source="/Asset/search_item_ico.png" Grid.Row="25" Grid.Column="0" Margin="0,10,0,10" HorizontalAlignment="Right" VerticalAlignment="Center" />
 
-            <Label Content="List" Grid.Row="26" FontSize="16" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
-            <StackPanel Background="White" Grid.ColumnSpan="2" Grid.Row="27" Margin="30,0,30,0"/>
-            <Button Content="Store List" Grid.Column="1" FontSize="14" Grid.Row="28" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="store_list"/>
-            <Button Content="Contructor List" Grid.Column="1" FontSize="14" Grid.Row="29" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="coon_list"/>
-            <Button Content="WO List" Grid.Column="1" FontSize="14" Grid.Row="30" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="WO_list"/>
-            <Button Content="Supplier List" Grid.Column="1" FontSize="14" Grid.Row="31" Style="{DynamicResource LeftButtonStyle}" Foreground="White" FontFamily="Yu Gothic UI Semibold" Command="{Binding UpdateViewCommand}" CommandParameter="supplier_list"/>
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="6" Background="#50000000" Visibility="{Binding operatorVisibility}">
 
-            <Image Source="/Asset/list_ico.png" Grid.Row="28" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/list_ico.png" Grid.Row="29" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/list_ico.png" Grid.Row="30" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
-            <Image Source="/Asset/list_ico.png" Grid.Row="31" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            </StackPanel>
 
         </Grid>
+       
         <StackPanel Grid.RowSpan="2" Grid.ColumnSpan="4" Background="#70000000" Visibility="{Binding LoadingVisibility}">
             
         </StackPanel>

@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -39,6 +40,7 @@ namespace Silicon_Inventory.ViewModel
         public bool _thirdTxbxEnabled { get; set; }
 
         public string _combobxVisibility { get; set; }
+        public string _AddVisibility { get; set; }
         public AllListViewModel()
         {
             Updater = new UpdaterForAllList(this);
@@ -46,8 +48,39 @@ namespace Silicon_Inventory.ViewModel
             woList = StaticPageForAllData.WorkOrder;
             supList = StaticPageForAllData.Supplier;
             storeList = StaticPageForAllData.WareHouse;
-
             addWindowVisibility = "Hidden";
+
+            StaticPageForAllData.isGoingNewView = false;
+            if(StaticPageForAllData.isOperator  == false)
+            {
+                AddVisibility = "Hidden";
+            }
+            else
+            {
+                AddVisibility = "Visible";
+                Thread th = new Thread(() =>
+                {
+                    while (true)
+                    {
+
+                        if (StaticPageForAllData.isOnline)
+                        {
+                            AddVisibility = "Visible";
+
+                        }
+                        else
+                        {
+                            AddVisibility = "Hidden";
+                        }
+                        if (StaticPageForAllData.isGoingNewView)
+                        {
+                            break;
+                        }
+                    }
+                });
+                th.Start();
+            }
+            
         }
 
         public async Task refreshAfterEveryAdd()
@@ -281,6 +314,7 @@ namespace Silicon_Inventory.ViewModel
         public string combobxVisibility { get { return _combobxVisibility; } set { _combobxVisibility = value; OnPropertyChanged(nameof(combobxVisibility)); } }
         public string addWindowVisibility { get { return _addWindowVisibility; } set { _addWindowVisibility = value; OnPropertyChanged(nameof(addWindowVisibility)); } }
         public string lastVisibility { get { return _lastVisibility; } set { _lastVisibility = value; OnPropertyChanged(nameof(lastVisibility)); } }
+        public string AddVisibility { get { return _AddVisibility; } set { _AddVisibility = value; OnPropertyChanged(nameof(AddVisibility)); } }
     }
 
     class UpdaterForAllList : ICommand

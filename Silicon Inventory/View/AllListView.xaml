@@ -442,7 +442,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#78F3AB "></StackPanel>
                         <Label Content="Contructor List" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Contructor" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#78F3AB" BorderBrush="#38CA74"  Command="{Binding Updater}" CommandParameter="con"/>
+                        <Button Content="Add Contructor" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#78F3AB" BorderBrush="#38CA74"  Command="{Binding Updater}" CommandParameter="con" Visibility="{Binding AddVisibility}"/>
                         <ListView ItemsSource="{Binding ConList}" x:Name='reportList' Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
@@ -513,7 +513,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#8DD5F0"></StackPanel>
                         <Label Content="Work Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Work Order" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#8DD5F0 " BorderBrush="#3E97B9" Command="{Binding Updater}" CommandParameter="wo"/>
+                        <Button Content="Add Work Order" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#8DD5F0 " BorderBrush="#3E97B9" Command="{Binding Updater}" CommandParameter="wo" Visibility="{Binding AddVisibility}"/>
                         <ListView ItemsSource="{Binding woList}"  Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
@@ -584,7 +584,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#998FF6  "></StackPanel>
                         <Label Content="Supplier List" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Supplier" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#998FF6 " BorderBrush="#5448CC"  Command="{Binding Updater}" CommandParameter="sup"/>
+                        <Button Content="Add Supplier" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#998FF6 " BorderBrush="#5448CC"  Command="{Binding Updater}" CommandParameter="sup" Visibility="{Binding AddVisibility}"/>
                         <ListView ItemsSource="{Binding supList}"  Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
@@ -655,7 +655,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#ECE987  "></StackPanel>
                         <Label Content="Store List" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="14" FontWeight="DemiBold"/>
-                        <Button Content="Add Store" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#ECE987 " BorderBrush="#B9B530" Command="{Binding Updater}" CommandParameter="store"/>
+                        <Button Content="Add Store" Grid.Column="1" Grid.Row="0" Margin="0,10,5,10" Background="#ECE987 " BorderBrush="#B9B530" Command="{Binding Updater}" CommandParameter="store" Visibility="{Binding AddVisibility}"/>
                         <ListView ItemsSource="{Binding storeList}"  Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="white" Background="#05000000" >
                             <ListView.View>
                                 <GridView  >
