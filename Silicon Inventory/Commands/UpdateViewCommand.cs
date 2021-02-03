@@ -30,7 +30,7 @@ namespace Silicon_Inventory.Commands
             StaticPageForAllData.isGoingNewView = true;
             if (parameter.ToString() == "dashboard")
             {
-                viewModel.SelectedViewModel = new PrintViewModel();
+                viewModel.SelectedViewModel = new DashBoardViewModel();
             }
             else if (parameter.ToString() == "issue_meterial")
             {

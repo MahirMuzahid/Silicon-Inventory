@@ -236,7 +236,7 @@
 
         </Grid>
        
-        <StackPanel Grid.RowSpan="2" Grid.ColumnSpan="4" Background="#70000000" Visibility="{Binding LoadingVisibility}">
+        <StackPanel Grid.RowSpan="2" Grid.ColumnSpan="4" Background="#95000000" Visibility="{Binding LoadingVisibility}">
             
         </StackPanel>
 
@@ -250,11 +250,14 @@
                 <RowDefinition Height=".6*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            <Label Content="User Name" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-            <Label Content="Password" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <Label Content="Sillicon, SAH 	&amp; JV of CEEL" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"/>
+            <Label Content="Ware House Invetory System" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White" Margin="0,80,0,0"/>
+            <Label Content="V 1.0.4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="White" Margin="0,160,0,0"/>
+            <Label Content="User Name" Grid.Row="2" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+            <Label Content="Password" Grid.Row="4" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
             <TextBox Grid.Row="1" Text="{Binding usersTxt, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding usEn}"  Visibility="{Binding LoadingVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  FontSize="17" Foreground="White" Background="#50000000" Margin="300,0,300,0"/>
             <TextBox Grid.Row="3" Text="{Binding passTxt, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"   IsEnabled="{Binding passEn}" Visibility="{Binding LoadingVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  FontSize="17" Foreground="White" Background="#50000000"  Margin="300,0,300,0"/>
-            <Label  Grid.Row="6" Content="{Binding txt}" Foreground="{Binding txtColor}"  HorizontalAlignment="Center" Visibility="{Binding LoadingVisibility}" VerticalAlignment="Center" FontSize="17"  FontWeight="DemiBold"/>
+            <Label  Grid.Row="6" Content="{Binding txt}" Foreground="{Binding txtColor}"  HorizontalAlignment="Center" Visibility="{Binding LoadingVisibility}" VerticalAlignment="Center" FontSize="17" FontWeight="DemiBold"/>
         </Grid>
         
     </Grid>

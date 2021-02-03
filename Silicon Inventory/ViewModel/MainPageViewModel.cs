@@ -164,7 +164,7 @@ namespace Silicon_Inventory.ViewModel
             await getData.GetAllData().ConfigureAwait(false);
             if(getData.error == null)
             {
-                txtColor = "#1FE972";
+                txtColor = "#71ECD5";
                 txt = "Fetching Done.";
             }
             else
@@ -176,6 +176,7 @@ namespace Silicon_Inventory.ViewModel
             user = StaticPageForAllData.Users;
             passEn = true;
             usEn = true;
+            LoadingVisibility = "Hidden";
         }
 
 

@@ -413,7 +413,12 @@
                 <RowDefinition Height="17*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="#F3F3F3">
-                <Label Content="Contructor, Work Order, Supplier, Store List" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Contructor, Work Order, Supplier, Store List" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                <Button Content="Refresh" Grid.Column="1" BorderBrush="Transparent" Margin="10" Command="{Binding Updater}" CommandParameter="refresh"/>
             </Grid>
             <Grid Grid.Row="1" >
                 <Grid Grid.Row="1">

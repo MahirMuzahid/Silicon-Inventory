@@ -381,6 +381,10 @@ namespace Silicon_Inventory.ViewModel
                 {
                     viewModel.AddWareHouseToServer();
                 }
+                else if (viewModel.adName == "refresh")
+                {
+                    viewModel.refreshAfterEveryAdd();
+                }
 
             }
         }

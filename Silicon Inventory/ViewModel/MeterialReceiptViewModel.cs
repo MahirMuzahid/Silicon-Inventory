@@ -549,7 +549,7 @@ namespace Silicon_Inventory.ViewModel
                 {
                     NullFlag++;
                 }
-                if (String.IsNullOrEmpty(_contructorName.ToString()))
+                if (String.IsNullOrEmpty(contructorName.ToString()))
                 {
                     NullFlag++;
                 }
