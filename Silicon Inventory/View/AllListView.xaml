@@ -727,7 +727,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Content="Exit" Grid.Row="0" Grid.Column="1" Background="#E46868 " Foreground="White" BorderBrush="Transparent" Command="{Binding Updater}" CommandParameter="exit"/>
                     <Label Content="{Binding adName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0" FontSize="15" FontWeight="DemiBold"/>
-                    <Button Content="Add" Grid.ColumnSpan="2" Grid.Row="2" Background="#91D944" BorderBrush="Transparent" IsEnabled="{Binding addEnabled}"/>
+                    <Button Content="Add" Grid.ColumnSpan="2" Grid.Row="2" Background="#91D944" BorderBrush="Transparent" IsEnabled="{Binding addEnabled}" Command="{Binding Updater}" CommandParameter="addToList"/>
                     <Grid Grid.Row="1" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width=".2*"/>
@@ -754,10 +754,22 @@
                         <TextBox Text="{Binding txbx3, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="3" Background="#10000000" BorderBrush="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#474747 " Visibility="{Binding lastVisibility}"/>
 
                         <Label Content="{Binding lbl1}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"/>
-                        <Label Content="{Binding lbl2}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="4" Visibility="{Binding lastVisibility}"/>
-                        <Label Content="{Binding lbl3}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="4" Visibility="{Binding lastVisibility}"/>
+                        <Label Content="{Binding lbl2}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="4" Visibility="{Binding lastVisibility}" />
+                        <Label Content="{Binding lbl3}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="4" Visibility="{Binding lastVisibility}" IsEnabled="{Binding thirdTxbxEnabled}"/>
 
-                        
+                        <ComboBox Grid.Row="3" Grid.Column="3" TextSearch.TextPath ="contructorName" SelectedItem="{Binding conName}" ItemsSource="{Binding Path= ConList}"  IsEditable="True"  Style="{DynamicResource ComboBoxStyle1}" Foreground="#404040" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="{Binding combobxVisibility}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Path= contructorID}"/>
+                                        <TextBlock Text="  ::  "/>
+                                        <TextBlock Text="{Binding  Path= contructorName}" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+
                     </Grid>
                 </Grid>
             </Grid>
