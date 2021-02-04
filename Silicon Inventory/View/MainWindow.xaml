@@ -120,12 +120,17 @@
         <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Background="#E5E5E5  " >
             <Grid Margin="0,0,40,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width="1.6*"/>
+                    <ColumnDefinition Width="1.6*"/>
+                    <ColumnDefinition Width="3.4*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width=".6*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="{Binding  userName}" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <Label Content="{Binding onlinetxt}" Foreground="{Binding onlinetxtColoe}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+
+
+                <Button Content="Server has been updated (Click to exit)" Grid.Column="2"  Margin="100,5,100,0" Background="LightGreen" BorderBrush="Transparent" Visibility="{Binding notificationVisibility}" Command="{Binding UpdateViewCommand}" CommandParameter="hide"/>
+                <Label Content="{Binding  userName}" FontSize="15" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="{Binding onlinetxt}" Foreground="{Binding onlinetxtColoe}" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
             </Grid>
         </StackPanel>
 
@@ -236,28 +241,28 @@
 
         </Grid>
        
-        <StackPanel Grid.RowSpan="2" Grid.ColumnSpan="4" Background="#95000000" Visibility="{Binding LoadingVisibility}">
+        <StackPanel Grid.RowSpan="2" Grid.ColumnSpan="4" Background="#20000000" Visibility="{Binding LoadingVisibility}">
             
         </StackPanel>
 
-        <Grid  Grid.RowSpan="2" Grid.Column="1" Visibility="{Binding LoadingVisibility}">
+        <Grid  Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Visibility="{Binding LoadingVisibility}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height=".4*"/>
                 <RowDefinition Height=".5*"/>
                 <RowDefinition Height=".4*"/>
                 <RowDefinition Height=".5*"/>
                 <RowDefinition Height=".6*"/>
-                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <Label Content="Sillicon, SAH 	&amp; JV of CEEL" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"/>
-            <Label Content="Ware House Invetory System" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White" Margin="0,80,0,0"/>
-            <Label Content="V 1.0.4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="White" Margin="0,160,0,0"/>
-            <Label Content="User Name" Grid.Row="2" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
-            <Label Content="Password" Grid.Row="4" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
-            <TextBox Grid.Row="1" Text="{Binding usersTxt, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding usEn}"  Visibility="{Binding LoadingVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  FontSize="17" Foreground="White" Background="#50000000" Margin="300,0,300,0"/>
-            <TextBox Grid.Row="3" Text="{Binding passTxt, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"   IsEnabled="{Binding passEn}" Visibility="{Binding LoadingVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  FontSize="17" Foreground="White" Background="#50000000"  Margin="300,0,300,0"/>
-            <Label  Grid.Row="6" Content="{Binding txt}" Foreground="{Binding txtColor}"  HorizontalAlignment="Center" Visibility="{Binding LoadingVisibility}" VerticalAlignment="Center" FontSize="17" FontWeight="DemiBold"/>
+
+            <Label Content="" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White"/>
+            <Label Content="User Name" Grid.Row="3" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="Black" />
+            <Label Content="Password" Grid.Row="5" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="Black"/>
+            <TextBox Grid.Row="2" Text="{Binding usersTxt, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding usEn}"  Visibility="{Binding LoadingVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  FontSize="17" Foreground="Black" Background="#20000000" Margin="500,0,500,0"/>
+            <TextBox Grid.Row="4" Text="{Binding passTxt, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"   IsEnabled="{Binding passEn}" Visibility="{Binding LoadingVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  FontSize="17" Foreground="Black" Background="#20000000"  Margin="500,0,500,0"/>
+            <Label  Grid.Row="7" Content="{Binding txt}" Foreground="{Binding txtColor}"  HorizontalAlignment="Center" Visibility="{Binding LoadingVisibility}" VerticalAlignment="Center" FontSize="17" FontWeight="DemiBold"/>
         </Grid>
         
     </Grid>

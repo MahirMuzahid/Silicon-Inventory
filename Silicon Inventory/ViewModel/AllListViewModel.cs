@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json;
 using Silicon_Inventory.Model;
 using System;
 using System.Collections.Generic;
@@ -92,7 +93,10 @@ namespace Silicon_Inventory.ViewModel
             supList = StaticPageForAllData.Supplier;
             storeList = StaticPageForAllData.WareHouse;
         }
-        int thisMax;
+        
+
+        
+            int thisMax;
         public void addContructor()
         {
             combobxVisibility = "Hidden";
@@ -228,6 +232,8 @@ namespace Silicon_Inventory.ViewModel
             StringContent contentT = new StringContent(jsonDataT, Encoding.UTF8, "application/json");
             HttpResponseMessage responset = await clientt.PostAsync(urlt, contentT).ConfigureAwait(true);
             refreshAfterEveryAdd();
+            SendConfirmation();
+
         }
         public async Task AddContructorToServer()
         {
@@ -237,6 +243,7 @@ namespace Silicon_Inventory.ViewModel
             StringContent contentT = new StringContent(jsonDataT, Encoding.UTF8, "application/json");
             HttpResponseMessage responset = await clientt.PostAsync(urlt, contentT).ConfigureAwait(true);
             refreshAfterEveryAdd();
+            SendConfirmation();
         }
         public async Task AddWorkOrderToServer()
         {
@@ -246,6 +253,7 @@ namespace Silicon_Inventory.ViewModel
             StringContent contentT = new StringContent(jsonDataT, Encoding.UTF8, "application/json");
             HttpResponseMessage responset = await clientt.PostAsync(urlt, contentT).ConfigureAwait(true);
             refreshAfterEveryAdd();
+            SendConfirmation();
         }
         public async Task AddWareHouseToServer()
         {
@@ -255,8 +263,16 @@ namespace Silicon_Inventory.ViewModel
             StringContent contentT = new StringContent(jsonDataT, Encoding.UTF8, "application/json");
             HttpResponseMessage responset = await clientt.PostAsync(urlt, contentT).ConfigureAwait(true);
             refreshAfterEveryAdd();
+            SendConfirmation();
         }
-
+        public async Task SendConfirmation()
+        {
+            string url = "https://siliconapinew.shikkhanobish.com/api/Slicon/refreshCall?&refresh=0";
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent("", Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(url, content).ConfigureAwait(false);
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(true);
+        }
         public void checkEnabled()
         {           
             if (!isWoAdd)
@@ -380,12 +396,11 @@ namespace Silicon_Inventory.ViewModel
                 else if (viewModel.adName == "Add Store")
                 {
                     viewModel.AddWareHouseToServer();
-                }
-                else if (viewModel.adName == "refresh")
-                {
-                    viewModel.refreshAfterEveryAdd();
-                }
-
+                }                
+            }
+            else if (parameter.ToString() == "refresh")
+            {
+                viewModel.refreshAfterEveryAdd();
             }
         }
 

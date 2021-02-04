@@ -5,8 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Silicon_Inventory.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+            d:DesignHeight="818.516" d:DesignWidth="1103.871">
     <Grid Background="White">
-        <Label Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Asset/back.jpg" Grid.RowSpan="4" Grid.ColumnSpan="3" Stretch="Fill"/>
+      
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/Asset/siliconloog.png" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="Silicon, SAH 	&amp; JV of CEEL" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="DemiBold"/>
+            <Label Content="Ware House Inventory System" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+            <Label x:Name="date" Content="Date: 23.05.2020" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <Label Content="For any information, please contact with developer" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+        </Grid>
+        <Label Content="Developer: Mahir Muzahid" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="13"/>
+
     </Grid>
 </UserControl>

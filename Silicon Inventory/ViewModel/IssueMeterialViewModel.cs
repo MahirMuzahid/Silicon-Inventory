@@ -536,6 +536,14 @@ namespace Silicon_Inventory.ViewModel
             AllVoucherIDSearch = issu;
             newVoucherVisibility = "Hidden";
         }
+        public async Task SendConfirmation()
+        {
+            string url = "https://siliconapi.shikkhanobish.com/api/Slicon/refreshCall?&refresh=0";
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent("", Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(url, content).ConfigureAwait(true);
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(true);
+        }
         public async Task GetStockDAta()
         {
             string urlt = "https://api.shikkhanobish.com/api/Silicon/GetStockData";
@@ -614,6 +622,7 @@ namespace Silicon_Inventory.ViewModel
                             AllIssueVoucher[i].IsPrinted = 1;
                         }
                     }
+                    SendConfirmation();
                     ErrorText = "Saving Done";
                     isPrintEnable = false;
                     isEditAbleVoucher = "Hidden";
@@ -648,7 +657,7 @@ namespace Silicon_Inventory.ViewModel
                     ErrorText = "Offline";
                 }
             }
-
+            
         }
         public void printInPrinter()
         {

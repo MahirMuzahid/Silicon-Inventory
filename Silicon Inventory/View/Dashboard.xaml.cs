@@ -23,6 +23,7 @@ namespace Silicon_Inventory.View
         public Dashboard()
         {
             InitializeComponent();
+            date.Content = "Date: " + DateTime.Now.ToString("dd/M/yyyy");
         }
     }
 }

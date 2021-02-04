@@ -279,6 +279,7 @@ namespace Silicon_Inventory.ViewModel
                     ShowThisVoucher(thisVoucherID);
                     EditVisibility = "Hidden";
                     popUpVisibility = "Hidden";
+                    SendConfirmation();
                     RestInfo();
                     sendMsg("", 2);
                 }
@@ -290,6 +291,14 @@ namespace Silicon_Inventory.ViewModel
             
             
             
+        }
+        public async Task SendConfirmation()
+        {
+            string url = "https://siliconapi.shikkhanobish.com/api/Slicon/refreshCall?&refresh=0";
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent("", Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(url, content).ConfigureAwait(true);
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(true);
         }
         public void printInPrinter()
         {

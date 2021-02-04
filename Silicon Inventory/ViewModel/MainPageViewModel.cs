@@ -1,4 +1,5 @@
-﻿using Silicon_Inventory.Commands;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Silicon_Inventory.Commands;
 using Silicon_Inventory.Model;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace Silicon_Inventory.ViewModel
         public string _onlinetxt { get; set; }
         public string _onlinetxtColoe { get; set; }
         public string _operatorVisibility { get; set; }
+        public string _notificationVisibility { get; set; }
         public bool _usEn { get; set; }
         public bool _passEn { get; set; }
         public ObservableCollection<User> user = new ObservableCollection<User>();
@@ -39,6 +41,7 @@ namespace Silicon_Inventory.ViewModel
         }
         public string txt { get { return _txt; } set { _txt = value; OnPropertyChanged(nameof(txt)); } }
         public string LoadingVisibility { get { return _LoadingVisibility; } set { _LoadingVisibility = value;  OnPropertyChanged(nameof(LoadingVisibility)); } }
+        public string notificationVisibility { get { return _notificationVisibility; } set { _notificationVisibility = value; OnPropertyChanged(nameof(notificationVisibility)); } }
         public string txtColor { get { return _txtColor; } set { _txtColor = value; OnPropertyChanged(nameof(txtColor)); } }
         public string userName { get { return _userName; } set { _userName = value; OnPropertyChanged(nameof(userName)); } }
         public string onlinetxt { get { return _onlinetxt; } set { _onlinetxt = value; OnPropertyChanged(nameof(onlinetxt)); } }
@@ -112,6 +115,8 @@ namespace Silicon_Inventory.ViewModel
         StaticPageForAllData getData = new StaticPageForAllData();
         public MainPageViewModel()
         {
+            notificationVisibility = "Hidden";
+            ConnectToServer();
             operatorVisibility = "Hidden";
             passEn = false;
             usEn = false;
@@ -164,7 +169,7 @@ namespace Silicon_Inventory.ViewModel
             await getData.GetAllData().ConfigureAwait(false);
             if(getData.error == null)
             {
-                txtColor = "#71ECD5";
+                txtColor = "BlueViolet";
                 txt = "Fetching Done.";
             }
             else
@@ -176,7 +181,7 @@ namespace Silicon_Inventory.ViewModel
             user = StaticPageForAllData.Users;
             passEn = true;
             usEn = true;
-            LoadingVisibility = "Hidden";
+            //LoadingVisibility = "Hidden";
         }
 
 
@@ -195,7 +200,46 @@ namespace Silicon_Inventory.ViewModel
         }
 
 
+        HubConnection _connection = null;
+        bool isConnected = false;
+        string connectionStatus = "Closed";
+        string url = "https://siliconapinew.shikkhanobish.com/SiliconHub";
+        public async Task ConnectToServer()
+        {
 
+            _connection = new HubConnectionBuilder()
+                .WithUrl(url)
+                .Build();
+            try
+            {
+                await _connection.StartAsync();
+            }
+           catch(System.Net.Http.HttpRequestException ex)
+            {
+
+            }
+            isConnected = true;
+            connectionStatus = "Connected";
+
+            _connection.Closed += async (s) =>
+            {
+                isConnected = false;
+                connectionStatus = "Disconnected";
+                await _connection.StartAsync();
+                isConnected = true;
+
+            };
+
+
+            _connection.On<int>("refreshCall", (refresh) =>
+            {
+                if(!StaticPageForAllData.isOperator)
+                {
+                    notificationVisibility = "Visible";
+                }
+                
+            });
+        }
     }
 
 

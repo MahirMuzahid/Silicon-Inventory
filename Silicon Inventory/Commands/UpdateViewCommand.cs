@@ -76,6 +76,10 @@ namespace Silicon_Inventory.Commands
             {
                 viewModel.SelectedViewModel = new AllListViewModel();
             }
+            else if (parameter.ToString() == "hide")
+            {
+                viewModel.notificationVisibility = "Hidden";
+            }
         }
 
     }
