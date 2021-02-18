@@ -135,9 +135,9 @@ namespace Silicon_Inventory.ViewModel
                     {
                         wasOffline = true;
                         onlinetxt = "Offline";
-                        onlinetxtColoe = "red";
+                        onlinetxtColoe = "#646464";
                         txt = "Offline";
-                        txtColor = "Red";
+                        txtColor = "#646464";
                         StaticPageForAllData.isOnline = false;
                         
                     }

@@ -129,7 +129,7 @@
 
 
                 <Button Content="Server has been updated (Click to exit)" Grid.Column="2"  Margin="100,5,100,0" Background="LightGreen" BorderBrush="Transparent" Visibility="{Binding notificationVisibility}" Command="{Binding UpdateViewCommand}" CommandParameter="hide"/>
-                <Label Content="{Binding  userName}" FontSize="15" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="{Binding  userName}" FontSize="15" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <Label Content="{Binding onlinetxt}" Foreground="{Binding onlinetxtColoe}" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
             </Grid>
         </StackPanel>
