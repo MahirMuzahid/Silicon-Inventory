@@ -43,10 +43,10 @@ namespace Silicon_Inventory.ViewModel
         public ICommand Updater { get; set; }
         public PeriodicReturnStatementViewModel()
         {
-            warehouse = StaticPageForAllData.WareHouse;
-            AllRetrunVoucher = StaticPageForAllData.AllReturnVoucher;
-            stockData = StaticPageForAllData.StockData;
-            Updater = new UpdaterForReturnReport(this);
+            //warehouse = StaticPageForAllData.WareHouse;
+            //AllRetrunVoucher = StaticPageForAllData.AllReturnVoucher;
+            //stockData = StaticPageForAllData.StockData;
+            //Updater = new UpdaterForReturnReport(this);
         }
         public async Task Fresh()
         {

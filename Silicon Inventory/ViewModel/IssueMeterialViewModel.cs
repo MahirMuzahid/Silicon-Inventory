@@ -86,30 +86,30 @@ namespace Silicon_Inventory.ViewModel
         public IssueMeterialViewModel()
         {
             
-            Updater = new Updater(this);
-            GetAllInfoAsync();
-            StaticPageForAllData.isGoingNewView = false;
-            Thread th = new Thread(() =>
-            {
-                while (true)
-                {
+            //Updater = new Updater(this);
+            //GetAllInfoAsync();
+            //StaticPageForAllData.isGoingNewView = false;
+            //Thread th = new Thread(() =>
+            //{
+            //    while (true)
+            //    {
                     
-                    if (StaticPageForAllData.isOnline)
-                    {
-                        newVoucherVisibility = "Hidden";
+            //        if (StaticPageForAllData.isOnline)
+            //        {
+            //            newVoucherVisibility = "Hidden";
 
-                    }
-                    else
-                    {
-                        newVoucherVisibility = "Visible";
-                    }
-                    if(StaticPageForAllData.isGoingNewView)
-                    {
-                        break;
-                    }
-                }
-            });
-            th.Start();
+            //        }
+            //        else
+            //        {
+            //            newVoucherVisibility = "Visible";
+            //        }
+            //        if(StaticPageForAllData.isGoingNewView)
+            //        {
+            //            break;
+            //        }
+            //    }
+            //});
+            //th.Start();
 
         }
 

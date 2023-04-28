@@ -44,16 +44,16 @@ namespace Silicon_Inventory.ViewModel
         public ICommand Updater { get; set; }
         public RequisitionStatement()
         {
-            conNameLbl = "";
-            woLbl = "";
-            isReqEnabled = false;
-            Updater = new UpdaterForRequisitionReport(this);
+            //conNameLbl = "";
+            //woLbl = "";
+            //isReqEnabled = false;
+            //Updater = new UpdaterForRequisitionReport(this);
        
-            IsprintEnable = false;
-            warehouse = StaticPageForAllData.WareHouse;
-            stockData = StaticPageForAllData.StockData;
-            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
-            AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
+            //IsprintEnable = false;
+            //warehouse = StaticPageForAllData.WareHouse;
+            //stockData = StaticPageForAllData.StockData;
+            //allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            //AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
                       
         }
         public async Task Fresh()

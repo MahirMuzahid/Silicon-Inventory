@@ -55,14 +55,14 @@ namespace Silicon_Inventory.ViewModel
         #region method
         public WOWisePeriodicIssueStatementViewModel()
         {
-            Updater = new UpdaterForWOCoWiseReport(this);
-            contructor = StaticPageForAllData.Contructor;
-            warehouse = StaticPageForAllData.WareHouse;
-            workorder = StaticPageForAllData.WorkOrder;
-            item = StaticPageForAllData.Items;
-            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
-            allRetrunVocuher = StaticPageForAllData.AllReturnVoucher;
-            stockData = StaticPageForAllData.StockData;
+            //Updater = new UpdaterForWOCoWiseReport(this);
+            //contructor = StaticPageForAllData.Contructor;
+            //warehouse = StaticPageForAllData.WareHouse;
+            //workorder = StaticPageForAllData.WorkOrder;
+            //item = StaticPageForAllData.Items;
+            //allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            //allRetrunVocuher = StaticPageForAllData.AllReturnVoucher;
+            //stockData = StaticPageForAllData.StockData;
         }
         public async Task Fresh()
         {

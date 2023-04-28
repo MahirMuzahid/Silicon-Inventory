@@ -20,10 +20,10 @@ namespace Silicon_Inventory.ViewModel
         
         public AddItemViewModel ()
         {
-            Updater = new UpdaterForAdditem(this);
-            stockData = StaticPageForAllData.StockData;
-            itemList = StaticPageForAllData.Items;
-            PlaceAllItem();
+            //Updater = new UpdaterForAdditem(this);
+            //stockData = StaticPageForAllData.StockData;
+            //itemList = StaticPageForAllData.Items;
+            //PlaceAllItem();
 
 
         }

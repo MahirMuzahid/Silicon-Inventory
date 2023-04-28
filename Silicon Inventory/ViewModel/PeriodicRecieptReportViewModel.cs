@@ -47,13 +47,13 @@ namespace Silicon_Inventory.ViewModel
         public ICommand Updater { get; set; }
         public PeriodicRecieptReportViewModel()
         {
-            Updater = new UpdaterForRecieptReport(this);
-            schkEnabled = true;
-            dchkEnabled = true;
-            IsprintEnable = false;
-            warehouse = StaticPageForAllData.WareHouse;
-            stockData = StaticPageForAllData.StockData;
-            AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
+            //Updater = new UpdaterForRecieptReport(this);
+            //schkEnabled = true;
+            //dchkEnabled = true;
+            //IsprintEnable = false;
+            //warehouse = StaticPageForAllData.WareHouse;
+            //stockData = StaticPageForAllData.StockData;
+            //AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
         }
 
         public async Task Fresh()

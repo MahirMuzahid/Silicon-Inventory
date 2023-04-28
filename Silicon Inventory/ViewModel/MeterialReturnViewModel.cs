@@ -76,31 +76,31 @@ namespace Silicon_Inventory.ViewModel
         StaticPageForAllData data = new StaticPageForAllData();
         public MeterialReturnViewModel ()
         {
-            Updater = new UpdaterForReturn(this);
-            ShowingVoucher = new ObservableCollection<ReturnVoucher>();
-            GetAllInfo();
-            StaticPageForAllData.isGoingNewView = false;
-            Thread th = new Thread(() =>
-            {
-                while (true)
-                {
+            //Updater = new UpdaterForReturn(this);
+            //ShowingVoucher = new ObservableCollection<ReturnVoucher>();
+            //GetAllInfo();
+            //StaticPageForAllData.isGoingNewView = false;
+            //Thread th = new Thread(() =>
+            //{
+            //    while (true)
+            //    {
 
-                    if (StaticPageForAllData.isOnline)
-                    {
-                        newVoucherVisibility = "Hidden";
+            //        if (StaticPageForAllData.isOnline)
+            //        {
+            //            newVoucherVisibility = "Hidden";
 
-                    }
-                    else
-                    {
-                        newVoucherVisibility = "Visible";
-                    }
-                    if (StaticPageForAllData.isGoingNewView)
-                    {
-                        break;
-                    }
-                }
-            });
-            th.Start();
+            //        }
+            //        else
+            //        {
+            //            newVoucherVisibility = "Visible";
+            //        }
+            //        if (StaticPageForAllData.isGoingNewView)
+            //        {
+            //            break;
+            //        }
+            //    }
+            //});
+            //th.Start();
         }
         public async Task GetAllInfo()
         {

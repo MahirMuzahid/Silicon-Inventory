@@ -93,35 +93,35 @@ namespace Silicon_Inventory.ViewModel
 
         public MeterialReceiptViewModel()
         {
-            StaticPageForAllData.isGoingNewView = false;
-            firstStart = 1;
-            Updater = new UpdaterForReceipt(this);
-            Contructor = new ObservableCollection<Contructor>();
-            WorkOrder = new ObservableCollection<WorkOrder>();
-            WareHouse = new ObservableCollection<Warehouse>();
-            Supplier = new ObservableCollection<Supplier>();
-            GetAllInfo();
-            Thread th = new Thread(() =>
-            {
-                while (true)
-                {
+            //StaticPageForAllData.isGoingNewView = false;
+            //firstStart = 1;
+            //Updater = new UpdaterForReceipt(this);
+            //Contructor = new ObservableCollection<Contructor>();
+            //WorkOrder = new ObservableCollection<WorkOrder>();
+            //WareHouse = new ObservableCollection<Warehouse>();
+            //Supplier = new ObservableCollection<Supplier>();
+            //GetAllInfo();
+            //Thread th = new Thread(() =>
+            //{
+            //    while (true)
+            //    {
 
-                    if (StaticPageForAllData.isOnline)
-                    {
-                        newVoucherVisibility = "Hidden";
+            //        if (StaticPageForAllData.isOnline)
+            //        {
+            //            newVoucherVisibility = "Hidden";
 
-                    }
-                    else
-                    {
-                        newVoucherVisibility = "Visible";
-                    }
-                    if (StaticPageForAllData.isGoingNewView)
-                    {
-                        break;
-                    }
-                }
-            });
-            th.Start();
+            //        }
+            //        else
+            //        {
+            //            newVoucherVisibility = "Visible";
+            //        }
+            //        if (StaticPageForAllData.isGoingNewView)
+            //        {
+            //            break;
+            //        }
+            //    }
+            //});
+            //th.Start();
         }
 
         public async void GetAllInfo()

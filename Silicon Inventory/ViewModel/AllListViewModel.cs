@@ -44,43 +44,43 @@ namespace Silicon_Inventory.ViewModel
         public string _AddVisibility { get; set; }
         public AllListViewModel()
         {
-            Updater = new UpdaterForAllList(this);
-            ConList = StaticPageForAllData.Contructor;
-            woList = StaticPageForAllData.WorkOrder;
-            supList = StaticPageForAllData.Supplier;
-            storeList = StaticPageForAllData.WareHouse;
-            addWindowVisibility = "Hidden";
+            //Updater = new UpdaterForAllList(this);
+            //ConList = StaticPageForAllData.Contructor;
+            //woList = StaticPageForAllData.WorkOrder;
+            //supList = StaticPageForAllData.Supplier;
+            //storeList = StaticPageForAllData.WareHouse;
+            //addWindowVisibility = "Hidden";
 
-            StaticPageForAllData.isGoingNewView = false;
-            if(StaticPageForAllData.isOperator  == false)
-            {
-                AddVisibility = "Hidden";
-            }
-            else
-            {
-                AddVisibility = "Visible";
-                Thread th = new Thread(() =>
-                {
-                    while (true)
-                    {
+            //StaticPageForAllData.isGoingNewView = false;
+            //if(StaticPageForAllData.isOperator  == false)
+            //{
+            //    AddVisibility = "Hidden";
+            //}
+            //else
+            //{
+            //    AddVisibility = "Visible";
+            //    Thread th = new Thread(() =>
+            //    {
+            //        while (true)
+            //        {
 
-                        if (StaticPageForAllData.isOnline)
-                        {
-                            AddVisibility = "Visible";
+            //            if (StaticPageForAllData.isOnline)
+            //            {
+            //                AddVisibility = "Visible";
 
-                        }
-                        else
-                        {
-                            AddVisibility = "Hidden";
-                        }
-                        if (StaticPageForAllData.isGoingNewView)
-                        {
-                            break;
-                        }
-                    }
-                });
-                th.Start();
-            }
+            //            }
+            //            else
+            //            {
+            //                AddVisibility = "Hidden";
+            //            }
+            //            if (StaticPageForAllData.isGoingNewView)
+            //            {
+            //                break;
+            //            }
+            //        }
+            //    });
+            //    th.Start();
+            //}
             
         }
 

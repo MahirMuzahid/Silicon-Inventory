@@ -124,7 +124,7 @@ namespace Silicon_Inventory.ViewModel
             IsRightusInfo = false;
             txt = "Fetching Data From Database....";
             txtColor = "White";
-            LoadingVisibility = "Visible";
+            LoadingVisibility = "Hidden";
             UpdateViewCommand = new UpdateViewCommand(this);
             Thread th = new Thread(() =>
             {

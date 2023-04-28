@@ -49,18 +49,18 @@ namespace Silicon_Inventory.ViewModel
         public ICommand Updater { get; set; }
         public StockBalanceReportViewModel()
         {
-            conNameLbl = "";
-            woLbl = "";
-            enbaleItem = false;
-            enbaleItem2 = false;
-            Updater = new UpdaterForStockReport(this);
+            //conNameLbl = "";
+            //woLbl = "";
+            //enbaleItem = false;
+            //enbaleItem2 = false;
+            //Updater = new UpdaterForStockReport(this);
 
-            IsprintEnable = false;
-            item = StaticPageForAllData.Items;
-            warehouse = StaticPageForAllData.WareHouse;
-            stockData = StaticPageForAllData.StockData;
-            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
-            AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
+            //IsprintEnable = false;
+            //item = StaticPageForAllData.Items;
+            //warehouse = StaticPageForAllData.WareHouse;
+            //stockData = StaticPageForAllData.StockData;
+            //allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            //AllRecieptVoucher = StaticPageForAllData.AllReceiptVoucher;
 
         }
 

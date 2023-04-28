@@ -95,24 +95,24 @@ namespace Silicon_Inventory.ViewModel
         #region method
         public StockLadgerViewModel()
         {
-            name2Width = 80;
-            itemEnabled = true;
-            Updater = new UpdaterForStockLadgerReport(this);
-            contructor = StaticPageForAllData.Contructor;
-            warehouse = StaticPageForAllData.WareHouse;
-            workorder = StaticPageForAllData.WorkOrder;
-            item = StaticPageForAllData.Items;
-            allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
-            allRetrunVocuher = StaticPageForAllData.AllReturnVoucher;
-            stockData = StaticPageForAllData.StockData;
-            allRecieptVocuher = StaticPageForAllData.AllReceiptVoucher;
-            name1 = "Date";
-            name2 = "Ticket#";
-            name3 = "Type#";
-            dchkEnabled = false;
-            schkEnabled = false;
-            allItemEnabled = false;
-            sItemEnabled = false;
+            //name2Width = 80;
+            //itemEnabled = true;
+            //Updater = new UpdaterForStockLadgerReport(this);
+            //contructor = StaticPageForAllData.Contructor;
+            //warehouse = StaticPageForAllData.WareHouse;
+            //workorder = StaticPageForAllData.WorkOrder;
+            //item = StaticPageForAllData.Items;
+            //allIssueVoucher = StaticPageForAllData.AllIssueVoucher;
+            //allRetrunVocuher = StaticPageForAllData.AllReturnVoucher;
+            //stockData = StaticPageForAllData.StockData;
+            //allRecieptVocuher = StaticPageForAllData.AllReceiptVoucher;
+            //name1 = "Date";
+            //name2 = "Ticket#";
+            //name3 = "Type#";
+            //dchkEnabled = false;
+            //schkEnabled = false;
+            //allItemEnabled = false;
+            //sItemEnabled = false;
         }
 
         public async Task Fresh()
